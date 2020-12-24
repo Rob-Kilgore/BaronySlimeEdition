@@ -1,0 +1,119 @@
+Notes:  * "creaturename" means the name of the creature all lowercase
+        * "CREATURENAME" means the name of the creature all uppercase
+        * "CreatureName" means book capitalization, but no spaces
+
+1. Create folder: models/creatures/creaturename
+    1. Copy files from template monster
+    2. Rename vox files from template_bodypart to creaturename_bodypart
+    3. replace vox files with custom models
+2. Update models.txt to include new files 
+    1. Copy section from template monster to end of custom section (custom section starts at line 1501)
+    2. rename lines the same way as in the step above
+3. Update sprites.txt to include new image file 
+    1. Add image at end of custom monster list (starts at line 223)
+4. Update en.txt to include new lines 
+    1. Add singular name of creature at end of entry list between entry 2000 and 2050
+    2. Add plural name of creature at end of entry list between entry 2050 and 2100
+    3. Add injury type for creature at end of entry list between entry 2100 and 2149
+    4. Add obituary message for creature at end of entry list between entry 2150 and 2199
+    * Make sure to include correct entry number at beginning of line
+5. Copy monster class file (monster_template.cpp) into src/ folder
+    1. Rename new class file to monster_creaturename.cpp
+    2. right click barony project in Visual Studio, and Add->Existing Item, then find new file
+    3. Open the file in visual Studio
+    4. ctrl + f, hit down arrow to right of text box in the find window
+        * match case should be on 
+        * scope should be "Current Document"
+        * Type templatename in the top text box, and creaturename in the bottom
+        * hit replace all
+        * repeat this step for the various cases (all uppercase, book capitalization)
+    5. On line that says "my->initMonster(###);" near the top, change the number to the line number minus one of the first entry in models.txt for your model
+    6. Find section where limbs are initiated (will have a comment that says "// torso" or something, followed by "Entity* entity = newEntity(###, #, map.entities, nullptr);")
+        * For each limb here, change the first number in the "newEntity(###, #, map.entities, nullptr);" statement to the line number of that limb from models.txt minus one
+6. Update monster.hpp
+    1. add CREATURENAME to end of Monster enum list
+    * Make sure to put a comma after previous entry
+    2. Increment NUMMONSTERS
+    3. Add creaturename to end of monstertypename[][16]
+    4. Add Creaturename to end of monstertypenamecapitalized[][16]
+    5. Set bloodtype for new monster (gibtype list)
+        * 0 = nothing, 1 = red blood, 2 = green blood, 3 = slime
+        * Do not forget comma on previous entry between number and //MONSTERNAME
+    6. Add damagetable for new monster
+        * just copy previous damage table and follow the pattern for the comma
+    7. Register init function
+        * at end of list for all monsters following pattern "initMonsterName(Entity* my, Stat* myStats)", copy previous entry and change only function name to "initCreatureName"
+    8. Register ActMonsterNameLimb function
+        * repeat previous step but with "actMonsterNameLimb(Entity* my)"
+    9. Register MonsterNameDie function
+        * repeat previous step but with "monsternameDie(Entity* my)"
+    10. Register monsternameMoveBodyparts function
+        * repeat previous step but with "monsternameMoveBodyparts(Entity* my, Stat* myStats, double dist)"
+        * NOTE: Some monsters have the function monsternameAnimate instead of monsternameMoveBodyparts, if it throws an error when you put the line in, just switch it
+7. update entity.hpp
+    1. add TO_CREATURENAME to end of "enum AttachToEntity" list
+8. Update entity.cpp
+    1. Register obituary message
+        1. Find list of statements with pattern "case MONSTERNAME: victim->setObituary(language[####]);" (There will be a line break between "MONSTERNAME:" and "victim")
+        2. Copy last block before "default:" (a block is the line that starts with "case" to the line with "break;")
+        3. set MONSTERNAME in case statement, and then change the number in the obituary to the entry of the obituary from en.txt
+            * NOTE: the entry number is not the line number, its the number you actually typed
+9. Update monster_shared.cpp
+    1. Set footstep sound and spell animation
+        1. This is in the "switch ( monsterType )" block
+        2. Copy previous monster (Before "default:") block and set CREATURENAME
+        3. if there's a stomp noise, the first line should be "monsterFootstepType = MONSTER_FOOTSTEP_STOMP;", otherwise "monsterFootstepType = MONSTER_FOOTSTEP_NONE;" (most monsters have none)
+        4. If no spell animation, second line is: "monsterSpellAnimation = MONSTER_SPELLCAST_NONE;", otherwise "monsterSpellAnimation = MONSTER_SPELLCAST_HUMANOID;" or "monsterSpellAnimation = MONSTER_SPELLCAST_SMALL_HUMANOID;"
+    2. Update getMonsterTypeFromSprite() function
+        1. find section with a lot of statements like "else if ( mySprite == #### ) { return CREATURENAME; } (there are line breaks between a lot of these spaces)
+        2. Copy block from last monster in list (from "else if" to "}")
+        3. Change the # in "mySprite == ####" to the line number minus one from the first model of new creature in models.txt
+10. Update stat_shared.cpp
+    1. find function "void setDefaultMonsterStats(Stat* stats, int sprite)"
+    2. go to end of the switch case statement (this is almost 2000 lines long, so don't be surprised to scroll a lot)
+    3. Copy whole block from template monster (includes 2 case statements, one in the hundreds or less, one that is "1000 + MONSTERNAME", ends at "break;")
+        * insert new block before "case 10:" at end
+    4. Change the first number (the one in the hundreds) to the line number minus one where the monster is in sprites.txt
+    5. Change all references to old monster in block to new monster
+    6. update stats as desired
+11. Update maps.cpp
+    1. Add monster sprite number to switch statement around line 3375
+        * sprite number is line for monster image in sprites.txt minus one
+    2. Add set for monsterType to if statement around line 3600
+        * copy block from "else if" to "}" and update number to sprite number and monsterType to CREATURENAME
+    3. Update limb rotate thingy
+        1. Copy case statement for previous monster and paste before "default:"
+            * line 4025 should be around this case statement, scroll to end of cases
+        2. Update all references to old monster in pasted block
+        3. change number in "entity->z = ##;" to match template monster
+12. Update entity_shared.cpp
+    1. Update switch case statement in "int checkSpriteType(Sint32 sprite)"
+        * add monster sprite number before line that says "//monsters"
+    2. Update "char spriteEditorNameStrings[NUM_EDITOR_SPRITES][64]"
+        * Add MONSTERNAME at end of list of new monsters (there should currently be placeholder strings there, so no need to add lines)
+    3. Update "char monsterEditorNameStrings[NUMMONSTERS][17]"
+        * Add monstername at end of list of monsters (you will need to add new lines)
+    4. Update "int canWearEquip(Entity* entity, int category)"
+        * find template monster in switch case statement and add "case MONSTERNAME:" at end of block containing template before "equipType = #;"
+13. Update actmonster.cpp (**This is the fun one**)
+    1. Add a new entry in every array in "bool swornenemies[NUMMONSTERS][NUMMONSTERS]"
+        * Put a ", 0" before the closing bracket in every single line, if the monster is an enemy of new monster, put ", 1" instead
+    2. Copy the last line of the array for the new monster and fill out 1s for enemies of monster and 0s otherwise
+    3. Repeat steps 1 and 2 for "bool monsterally[NUMMONSTERS][NUMMONSTERS]"
+        * same idea but 1 means ally, and 0 means not ally
+    4. Add entry at end of "double sightranges[NUMMONSTERS]"
+        * this is the sight range for monster
+        * don't forget the comma on the previous entry
+    5. Add block for something about rotation, idk. But it's around line 700
+        * Same idea for what we did in step 10.3
+    6. Add initialization for monster at end of a big if-else if statement around line 1600
+        * copy last else if block and change number to first model line number minus 1 and init statement to initCreaturename
+    7. Add another initialization for monster at end of a switch case statement around line 2100
+        * same idea, but change case line to "case CREATURENAME" and the init statement to the same as the previous step
+    8. Set death function in switch case statement around line 3300
+        * copy pattern for previous monsters
+    9. Set animation function around line 8000 in big if-else if statement
+        * copy else if block from template monster (not necessarily monster at end of block bc animate vs. moveBodyparts), change type to new monster type
+        * change function to have new monster name
+14. Update magic.cpp
+    * there's a difficulty list around line 1265, add "case CREATURENAME:" to end of list with comparable monsters

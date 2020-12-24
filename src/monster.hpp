@@ -69,9 +69,12 @@ enum Monster : int
 	SKU_LIT,
 	RAN_GIC,
 	WAN_RIT,
-	CLONE_FALLEN
+	CLONE_FALLEN,
+	FROGMAN,
+	BIGWOG,
+	WEREWOLF
 };
-const int NUMMONSTERS = 57;
+const int NUMMONSTERS = 60;
 extern int kills[NUMMONSTERS];
 
 static char monstertypename[][16] =
@@ -132,7 +135,10 @@ static char monstertypename[][16] =
 	"sku-lit",
 	"ran-gic",
 	"wan-rit",
-	"clonefallen"
+	"clonefallen",
+	"frogman",
+	"bigwog",
+	"werewolf"
 };
 
 static char monstertypenamecapitalized[][16] =
@@ -193,7 +199,10 @@ static char monstertypenamecapitalized[][16] =
 	"Sku-lit",
 	"Ran-gic",
 	"Wan-rit",
-	"Clonefallen"
+	"Clonefallen",
+	"Frogman",
+	"Bigwog",
+	"Werewolf"
 };
 
 // body part focal points
@@ -261,7 +270,10 @@ static char gibtype[NUMMONSTERS] =
 	3,	//SKU_LIT,
 	3,	//RAN_GIC,
 	3,	//WAN_RIT
-	0	//CLONE_FALLEN
+	0,	//CLONE_FALLEN
+	2,	//FROGMAN
+	2,	//BIGWOG
+	1	//WEREWOLF
 };
 
 // columns go like this:
@@ -325,7 +337,10 @@ static double damagetables[NUMMONSTERS][7] =
 	{ 1.f, 1.f, 1.f, 1.f, 1.f, 1.f, 1.2 }, // skul-lit
 	{ 1.f, 1.f, 1.f, 1.f, 1.f, 1.f, 1.2 }, // ran-gic
 	{ 1.f, 1.f, 1.f, 1.f, 1.f, 1.f, 1.2 }, // wan-rit
-	{ 1.f, 1.f, 1.f, 1.f, 1.f, 1.f, 1.f }  // clone fallen
+	{ 1.f, 1.f, 1.f, 1.f, 1.f, 1.f, 1.f }, // clone fallen
+	{ 1.1, 0.8, 1.1, 0.8, 0.9, 1.f, 0.8 }, // frogman
+	{ 1.f, 1.f, 1.f, 1.f, 1.f, 1.f, 1.f }, // bigwog
+	{ 1.f, 1.f, 1.f, 1.f, 1.f, 1.f, 1.f }, // werewolf
 };
 
 enum DamageTableType : int
@@ -587,6 +602,9 @@ void initSkuLit(Entity* my, Stat* myStats);
 void initRanGic(Entity* my, Stat* myStats);
 void initWanRit(Entity* my, Stat* myStats);
 void initCloneFallen(Entity* my, Stat* myStats);
+void initFrogman(Entity* my, Stat* myStats);
+void initBigWog(Entity* my, Stat* myStats);
+void initWerewolf(Entity* my, Stat* myStats);
 
 //--act*Limb functions--
 void actHumanLimb(Entity* my);
@@ -631,6 +649,9 @@ void actLichFallenLimb(Entity* my);
 void actDustDevilLimb(Entity* my);
 void actMetallicBeastLimb(Entity* my);
 void actCloneFallenLimb(Entity* my);
+void actFrogmanLimb(Entity* my);
+void actBigWogLimb(Entity* my);
+void actWerewolfLimb(Entity* my);
 
 //--*Die functions--
 void humanDie(Entity* my);
@@ -685,6 +706,9 @@ void skuLitDie(Entity* my);
 void ranGicDie(Entity* my);
 void wanRitDie(Entity* my);
 void cloneFallenDie(Entity* my);
+void frogmanDie(Entity* my);
+void bigwogDie(Entity* my);
+void werewolfDie(Entity* my);
 
 //--*MoveBodyparts functions--
 void humanMoveBodyparts(Entity* my, Stat* myStats, double dist);
@@ -739,6 +763,9 @@ void skuLitAnimate(Entity* my, double dist);
 void ranGicAnimate(Entity* my, double dist);
 void wanRitAnimate(Entity* my, double dist);
 void cloneFallenAnimate(Entity* my, Stat* myStats, double dist);
+void frogmanMoveBodyparts(Entity* my, Stat* myStats, double dist);
+void bigwogMoveBodyparts(Entity* my, Stat* myStats, double dist);
+void werewolfMoveBodyparts(Entity* my, Stat* myStats, double dist);
 
 //--misc functions--
 void actMinotaurTrap(Entity* my);

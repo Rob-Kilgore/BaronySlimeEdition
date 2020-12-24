@@ -2,6 +2,13 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/Libraries
-/VS.2015/Release
-/VS.2015/.vs/Barony/v16
+/Libraries/
+/build/
+/VS/Barony/Debug/
+/VS/Barony/Release/
+/VS/.vs/
+/VS.2015/Barony/Debug/
+/VS.2015/Barony/Release/
+/VS.2015/editor/Debug/
+/VS.2015/editor/Release/
+/VS.2015/.vs/

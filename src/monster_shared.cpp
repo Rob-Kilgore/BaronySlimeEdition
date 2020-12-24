@@ -233,6 +233,20 @@ void Entity::initMonster(int mySprite)
 		case CLONE_FALLEN:
 			monsterFootstepType = MONSTER_FOOTSTEP_NONE;
 			monsterSpellAnimation = MONSTER_SPELLCAST_NONE;
+			break;
+		case FROGMAN:
+			monsterFootstepType = MONSTER_FOOTSTEP_NONE;
+			monsterSpellAnimation = MONSTER_SPELLCAST_NONE;
+			break;
+		case BIGWOG:
+			monsterFootstepType = MONSTER_FOOTSTEP_STOMP;
+			monsterSpellAnimation = MONSTER_SPELLCAST_NONE;
+			break;
+		case WEREWOLF:
+			monsterFootstepType = MONSTER_FOOTSTEP_NONE;
+			monsterSpellAnimation = MONSTER_SPELLCAST_NONE;
+			break;
+
 
 		default:
 			monsterFootstepType = MONSTER_FOOTSTEP_NONE;
@@ -463,6 +477,18 @@ int Entity::getMonsterTypeFromSprite()
 	else if (mySprite == 1456)     // fallen clone body
 	{
 		return CLONE_FALLEN;
+	}
+	else if (mySprite == 1500)     // frogman head
+	{
+		return FROGMAN;
+	}
+	else if (mySprite == 1506)     // bigwog head
+	{
+		return BIGWOG;
+	}
+	else if (mySprite == 1513)     // werewolf head
+	{
+		return WEREWOLF;
 	}
 
 	return NOTHING;

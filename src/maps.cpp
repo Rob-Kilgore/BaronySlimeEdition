@@ -3373,6 +3373,9 @@ void assignActions(map_t* map)
 			case 204:
 			case 205:
 			case 206:
+			case 222:
+			case 223:
+			case 224:
 			{
 				entity->sizex = 4;
 				entity->sizey = 4;
@@ -3600,6 +3603,15 @@ void assignActions(map_t* map)
 				else if (entity->sprite == 206)     
 				{
 					monsterType = WAN_RIT;
+				}
+				else if (entity->sprite == 222) {
+					monsterType = FROGMAN;
+				}
+				else if (entity->sprite == 223) {
+					monsterType = BIGWOG;
+				}
+				else if (entity->sprite == 224) {
+					monsterType = WEREWOLF;
 				}
 				else
 				{
@@ -4010,6 +4022,25 @@ void assignActions(map_t* map)
 						entity->focalx = limbs[CLONE_FALLEN][0][0]; // -0.75
 						entity->focaly = limbs[CLONE_FALLEN][0][1]; // 0
 						entity->focalz = limbs[CLONE_FALLEN][0][2]; // 0
+						break;
+
+					case FROGMAN:
+						entity->z = -1.5;
+						entity->focalx = limbs[FROGMAN][0][0]; // 1
+						entity->focaly = limbs[FROGMAN][0][1]; // 0
+						entity->focalz = limbs[FROGMAN][0][2]; // -2
+						break;
+					case BIGWOG:
+						entity->z = -8;
+						entity->focalx = limbs[BIGWOG][0][0]; // 1
+						entity->focaly = limbs[BIGWOG][0][1]; // 0
+						entity->focalz = limbs[BIGWOG][0][2]; // -2
+						break;
+					case WEREWOLF:
+						entity->z = -8.5;
+						entity->focalx = limbs[WEREWOLF][0][0]; // 1
+						entity->focaly = limbs[WEREWOLF][0][1]; // 0
+						entity->focalz = limbs[WEREWOLF][0][2]; // -2
 						break;
 					default:
 						break;
@@ -6647,6 +6678,17 @@ void assignActions(map_t* map)
 					entity->skill[28] = 1; // is a mechanism
 				}*/
 				entity->portalVictoryType = 3;
+				break;
+				// big big chungus
+			case 235:
+				entity->x += 8;
+				entity->y += 8;
+				entity->z = 4;
+				entity->sprite = 1561;
+				entity->behavior = &actStalagFloor;
+				entity->flags[PASSABLE] = false;
+				entity->flags[BRIGHT] = false;
+				entity->flags[BLOCKSIGHT] = false;
 				break;
 			default:
 				break;

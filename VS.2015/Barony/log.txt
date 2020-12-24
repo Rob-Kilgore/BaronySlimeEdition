@@ -1,2 +1,2 @@
-[14-34-39] error: unable to locate language file: 'lang/en.txt'
-[14-34-39] Fatal error: failed to load default language file!
+[22-21-35] error: unable to locate language file: 'lang/en.txt'
+[22-21-35] Fatal error: failed to load default language file!

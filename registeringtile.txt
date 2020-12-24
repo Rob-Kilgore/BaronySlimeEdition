@@ -1,0 +1,3 @@
+Add image at the end of tiles.txt
+Add filename to tileEditorNameStrings in entity_shared.cpp ~line 1277
+Increment NUM_EDITOR_TILES by 1 in entity.hpp

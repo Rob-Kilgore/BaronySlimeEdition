@@ -1847,6 +1847,84 @@ void setDefaultMonsterStats(Stat* stats, int sprite)
 			stats->GOLD = 0;
 			stats->HUNGER = 900;
 			break;
+		case 222:
+		case (1000 + FROGMAN):
+			stats->type = FROGMAN;
+			stats->sex = static_cast<sex_t>(rand() % 2);
+			stats->appearance = 0;
+
+			stats->HP = 220;
+			stats->MAXHP = stats->HP;
+			stats->MP = 50;
+			stats->MAXMP = 50;
+			stats->OLDHP = stats->HP;
+			stats->STR = 55;
+			stats->RANDOM_STR = 5;
+			stats->DEX = 5;
+			stats->CON = 25;
+			stats->INT = 1;
+			stats->PER = 5;
+			stats->RANDOM_PER = 5;
+			stats->CHR = -4;
+			stats->RANDOM_CHR = 0;
+
+			stats->EXP = 0;
+			stats->LVL = 50;
+			stats->GOLD = 0;
+			stats->HUNGER = 900;
+			break;
+		case 223:
+		case (1000 + BIGWOG):
+			stats->type = BIGWOG;
+			stats->sex = MALE;
+			stats->appearance = 0;
+			stats->inventory.first = NULL;
+			stats->inventory.last = NULL;
+			stats->HP = 2000;
+			stats->MAXHP = 2000;
+			stats->MP = 100;
+			stats->MAXMP = 100;
+			stats->OLDHP = stats->HP;
+			stats->STR = 50;
+			stats->DEX = -30;
+			stats->CON = 30;
+			stats->INT = 5;
+			stats->PER = 5;
+			stats->CHR = -5;
+			stats->EXP = 0;
+			stats->LVL = 60;
+			stats->GOLD = 400;
+			stats->HUNGER = 900;
+
+			stats->EDITOR_ITEMS[ITEM_SLOT_INV_1] = 1;
+			stats->EDITOR_ITEMS[ITEM_SLOT_INV_1 + ITEM_CHANCE] = 100; //Random Items
+			break;
+		case 224:
+		case (1000 + WEREWOLF):
+			stats->type = WEREWOLF;
+			stats->sex = MALE;
+			stats->appearance = 0;
+			stats->inventory.first = NULL;
+			stats->inventory.last = NULL;
+			stats->HP = 300;
+			stats->MAXHP = 300;
+			stats->MP = 100;
+			stats->MAXMP = 100;
+			stats->OLDHP = stats->HP;
+			stats->STR = 50;
+			stats->DEX = -30;
+			stats->CON = 30;
+			stats->INT = 5;
+			stats->PER = 5;
+			stats->CHR = -5;
+			stats->EXP = 0;
+			stats->LVL = 60;
+			stats->GOLD = 400;
+			stats->HUNGER = 900;
+
+			stats->EDITOR_ITEMS[ITEM_SLOT_INV_1] = 1;
+			stats->EDITOR_ITEMS[ITEM_SLOT_INV_1 + ITEM_CHANCE] = 100; //Random Items
+			break;
 		case 10:
 		default:
 			break;

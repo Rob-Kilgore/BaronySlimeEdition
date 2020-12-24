@@ -846,6 +846,7 @@ public:
 	void succubusChooseWeapon(const Entity* target, double dist);
 	void choloroshChooseWeapon(const Entity* target, double dist);
 	void skeletonSummonSetEquipment(Stat* myStats, int rank);
+
 	void tinkerBotSetStats(Stat* myStats, int rank);
 	bool monsterInMeleeRange(const Entity* target, double dist) const
 	{
@@ -1034,8 +1035,8 @@ void actTextSource(Entity* my);
 
 static const int NUM_ITEM_STRINGS = 403;
 static const int NUM_ITEM_STRINGS_BY_TYPE = 162;
-static const int NUM_EDITOR_SPRITES = 239;
-static const int NUM_EDITOR_TILES = 538;
+static const int NUM_EDITOR_SPRITES = 240;
+static const int NUM_EDITOR_TILES = 539;
 
 // furniture types.
 static const int FURNITURE_TABLE = 0;
@@ -1177,7 +1178,10 @@ public:
 		TO_SKULIT,
 		TO_RANGIC,
 		TO_WANRIT,
-		TO_CLONEFALLEN
+		TO_CLONEFALLEN,
+		TO_FROGMAN,
+		TO_BIGWOG,
+		TO_WEREWOLF
 	};
 	enum ScriptType : int
 	{

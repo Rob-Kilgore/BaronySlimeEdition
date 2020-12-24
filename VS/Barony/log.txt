@@ -1,0 +1,2 @@
+[16-21-31] error: unable to locate language file: 'lang/en.txt'
+[16-21-31] Fatal error: failed to load default language file!

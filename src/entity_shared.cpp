@@ -72,6 +72,9 @@ int checkSpriteType(Sint32 sprite)
 	case 218:
 	case 219:
 	case 220:
+	case 222:
+	case 223:
+	case 224:
 		//monsters
 		return 1;
 		break;
@@ -1191,8 +1194,21 @@ char spriteEditorNameStrings[NUM_EDITOR_SPRITES][64] =
 	"SPELLBOT",
 	"DUMMYBOT",
 	"GYROBOT",
-	"UNUSED"
-	""
+	"UNUSED",
+	"FROGMAN",
+	"BIG WOG",
+	"WEREWOLF",
+	"",
+	"",
+	"",
+	"",
+	"",
+	"",
+	"",
+	"",
+	"",
+	"",
+	"BIG BIG CHUNGUS"
 };
 
 char monsterEditorNameStrings[NUMMONSTERS][17] =
@@ -1252,7 +1268,10 @@ char monsterEditorNameStrings[NUMMONSTERS][17] =
 	"metallicBeast",
 	"sku-lit",
 	"ran-gic",
-	"wan-rit"
+	"wan-rit",
+	"frogman",
+	"bigwog",
+	"werewolf"
 };
 
 char tileEditorNameStrings[NUM_EDITOR_TILES][44] =
@@ -1793,7 +1812,9 @@ char tileEditorNameStrings[NUM_EDITOR_TILES][44] =
 	"PinkSymbolFall3.png",
 	"PinkSymbolFall4.png",
 	"happy.png",
-	"", "",
+	"",
+	"",
+	"Cornfield.png"
 };
 
 int canWearEquip(Entity* entity, int category)
@@ -1830,6 +1851,9 @@ int canWearEquip(Entity* entity, int category)
 				case ABOMINATION:
 				case ANT:
 				case PARASITE:
+				case FROGMAN:
+				case BIGWOG:
+				case WEREWOLF:
 					equipType = 0;
 					break;
 

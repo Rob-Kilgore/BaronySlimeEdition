@@ -794,6 +794,15 @@ void Entity::killedByMonsterObituary(Entity* victim)
 			case CLONE_FALLEN:
 				victim->setObituary(language[2185]);
 				break;
+			case FROGMAN:
+				victim->setObituary(language[2186]);
+				break;
+			case BIGWOG:
+				victim->setObituary(language[2187]);
+				break;
+			case WEREWOLF:
+				victim->setObituary(language[2188]);
+				break;
 			default:
 				victim->setObituary(language[1500]);
 				break;

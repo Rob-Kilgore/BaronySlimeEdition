@@ -447,7 +447,7 @@ void initSkeleton(Entity* my, Stat* myStats)
 	my->bodyparts.push_back(entity);
 
 	// right leg
-	entity = newEntity(236, 0, map.entities, nullptr); //Limb entity.
+	entity = newEntity(274, 0, map.entities, nullptr); //Limb entity.
 	entity->sizex = 4;
 	entity->sizey = 4;
 	entity->skill[2] = my->getUID();

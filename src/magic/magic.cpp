@@ -1299,12 +1299,14 @@ void spellEffectCharmMonster(Entity& my, spellElement_t& element, Entity* parent
 				case FLESHLING:
 				case PARASITE:
 				case RAN_GIC:
+				case FROGMAN:
 					difficulty = 2;
 					break;
 				case CRYSTALGOLEM:
 				case VAMPIRE:
 				case CHOLOROSH:
 				case WAN_RIT:
+				case WEREWOLF:
 					difficulty = 5;
 					break;
 				case COCKATRICE:
@@ -1320,6 +1322,7 @@ void spellEffectCharmMonster(Entity& my, spellElement_t& element, Entity* parent
 				case LICH_FALLEN:
 				case METALLICBEAST:
 				case CLONE_FALLEN:
+				case BIGWOG:
 					difficulty = 666;
 					break;
 			}
