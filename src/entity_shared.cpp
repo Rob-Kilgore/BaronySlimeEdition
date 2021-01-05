@@ -75,6 +75,18 @@ int checkSpriteType(Sint32 sprite)
 	case 222:
 	case 223:
 	case 224:
+	case 225:
+	case 226:
+	case 227:
+	case 228:
+	case 229:
+	case 230:
+	case 231:
+	case 232:
+	case 233:
+	case 234:
+	case 235:
+	case 236:
 		//monsters
 		return 1;
 		break;
@@ -1198,17 +1210,18 @@ char spriteEditorNameStrings[NUM_EDITOR_SPRITES][64] =
 	"FROGMAN",
 	"BIG WOG",
 	"WEREWOLF",
-	"",
-	"",
-	"",
-	"",
-	"",
-	"",
-	"",
-	"",
-	"",
-	"",
-	"BIG BIG CHUNGUS"
+	"GREY WEREWOLF",
+	"BANSHEE",
+	"WILL O' THE WISP",
+	"CROW",
+	"ENT",
+	"LIVING JACK O' LANTERN",
+	"MR. SCARECROW",
+	"GINEVRA",
+	"GRETTA",
+	"GRIMELDA",
+	"CULTIST",
+	"FLESH GOLEM"
 };
 
 char monsterEditorNameStrings[NUMMONSTERS][17] =
@@ -1271,7 +1284,19 @@ char monsterEditorNameStrings[NUMMONSTERS][17] =
 	"wan-rit",
 	"frogman",
 	"bigwog",
-	"werewolf"
+	"werewolf",
+	"greywerewolf",
+	"banshee",
+	"willothewisp",
+	"crow",
+	"ent",
+	"jackolantern",
+	"mrscarecrow",
+	"ginevra",
+	"gretta",
+	"grimelda",
+	"cultist",
+	"fleshgolem"
 };
 
 char tileEditorNameStrings[NUM_EDITOR_TILES][44] =
@@ -1814,7 +1839,75 @@ char tileEditorNameStrings[NUM_EDITOR_TILES][44] =
 	"happy.png",
 	"",
 	"",
-	"Cornfield.png"
+	"HagHouseLogs.png",
+	"HagHouseLogsEnd.png",
+	"HagHouseLogsLeft.png",
+	"HagHouseLogsRight.png",
+	"HagHouseWindow.png",
+	"HauntedForestDarknessEyes.png",
+	"HauntedForestDarkness.png",
+	"HauntedForestDirt.png",
+	"HauntedForestEyesBottomTrees.png",
+	"HauntedForestGrass.png",
+	"HauntedForestLeaves.png",
+	"HauntedForestPillarBottomTrees.png",
+	"HauntedForestPillarBottom.png",
+	"HauntedForestPillarTopTreespng.png",
+	"HauntedForestPillarTop.png",
+	"HauntedForestPillar.png",
+	"HauntedForestTreeGapBottom.png",
+	"HauntedForestTreeTopGap.png",
+	"HauntedForestTreeTops2.png",
+	"HauntedForestTreeTops.png",
+	"HauntedForestTreeTrunk.png",
+	"HauntedForestTrees2wEyes.png",
+	"HauntedForestTrees2.png",
+	"HauntedForestTreeswEyes.png",
+	"HauntedForestTrees.png",
+	"HauntedForestRock.png",
+	"HFDirtGrassE.png",
+	"HFDirtGrassN.png",
+	"HFDirtGrassNE.png",
+	"HFDirtGrassNW.png",
+	"HFDirtGrassS.png",
+	"HFDirtGrassSE.png",
+	"HFDirtGrassSW.png",
+	"HFDirtGrassW.png",
+	"HFPuzzlePillarDark.png",
+	"HFPuzzlePillarLight.png",
+	"HTDirtRockE.png",
+	"HTDirtRockN.png",
+	"HTDirtRockNE.png",
+	"HTDirtRockNW.png",
+	"HTDirtRockS.png",
+	"HTDirtRockSE.png",
+	"HTDirtRockSW.png",
+	"HTDirtRockW.png",
+	"BioluminescentDirt.png",
+	"BioluminescentDirt2png.png",
+	"BioluminescentGrass.png",
+	"DirtBioGrassBLeft.png",
+	"DirtBioGrassBRight.png",
+	"DirtBioGrassE.png",
+	"DirtBioGrassN.png",
+	"DirtBioGrassS.png",
+	"DirtBioGrassTLeft.png",
+	"DirtBioGrassTRight.png",
+	"DirtBioGrassW.png",
+	"DirtRockBLeft.png",
+	"DirtRockBRight.png",
+	"DirtRockE.png",
+	"DirtRockN.png",
+	"DirtRockS.png",
+	"DirtRockTLeft.png",
+	"DirtRockTRight.png",
+	"DirtRockW.png",
+	"Tunnels1Dirt.png",
+	"TunnelsDirtBLeft.png",
+	"TunnelsDirtBRight.png",
+	"TunnelsDirtTLeft.png",
+	"TunnelsDirtTRight.png",
+	"TunnelsRock.png",
 };
 
 int canWearEquip(Entity* entity, int category)
@@ -1854,6 +1947,11 @@ int canWearEquip(Entity* entity, int category)
 				case FROGMAN:
 				case BIGWOG:
 				case WEREWOLF:
+				case GREY_WEREWOLF:
+				case CROW:
+				case ENT:
+				case JACK_O_LANTERN:
+				case FLESH_GOLEM:
 					equipType = 0;
 					break;
 
@@ -1867,6 +1965,13 @@ int canWearEquip(Entity* entity, int category)
 				case SKU_LIT:
 				case RAN_GIC:
 				case WAN_RIT:
+				case BANSHEE:
+				case WILL_O_THE_WISP:
+				case MR_SCARECROW:
+				case GINEVRA:
+				case GRETTA:
+				case GRIMELDA:
+				case CULTIST:
 					equipType = 1;
 					break;
 

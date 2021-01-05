@@ -143,6 +143,7 @@ static const int PARTICLE_EFFECT_SHADOW_TAG = 21;
 static const int PARTICLE_EFFECT_SPELLBOT_ORBIT = 22;
 static const int PARTICLE_EFFECT_PLAYER_AUTOMATON_DEATH = 23;
 static const int PARTICLE_EFFECT_DEVIL_SUMMON_MONSTER = 24;
+static const int PARTICLE_EFFECT_HAG_TELEPORT = 25;
 
 // actmagicIsVertical constants
 static const int MAGIC_ISVERTICAL_NONE = 0;

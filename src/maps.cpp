@@ -467,7 +467,7 @@ int monsterCurve(int level)
 			return DEMON;
 		}
 	}
-	else if (!strncmp(map.name, "The Factory", 4))
+	else if (!strncmp(map.name, "The Factory", 8))
 	{
 		switch (rand() % 15)
 		{
@@ -495,6 +495,36 @@ int monsterCurve(int level)
 		case 13:
 		case 14:
 			return METALLICBEAST;
+		}
+	}
+	else if (!strncmp(map.name, "The Forbidden Wood", 15))
+	{
+		switch (rand() % 15)
+		{
+		case 0:
+		case 1:
+			return WEREWOLF;
+		case 2:
+		case 3:
+			return GREY_WEREWOLF;
+		case 4:
+		case 5:
+		case 6:
+			return CULTIST;
+		case 7:
+			return JACK_O_LANTERN;
+		case 8:
+			return WILL_O_THE_WISP;
+		case 9:
+			return CROW;
+		case 10:
+			return ENT;
+		case 11:
+			return BANSHEE;
+		case 12:
+		case 13:
+		case 14:
+			return FLESH_GOLEM;
 		}
 	}
 	return SKELETON; // basic monster
@@ -3376,6 +3406,18 @@ void assignActions(map_t* map)
 			case 222:
 			case 223:
 			case 224:
+			case 225:
+			case 226:
+			case 227:
+			case 228:
+			case 229:
+			case 230:
+			case 231:
+			case 232:
+			case 233:
+			case 234:
+			case 235:
+			case 236:
 			{
 				entity->sizex = 4;
 				entity->sizey = 4;
@@ -3612,6 +3654,42 @@ void assignActions(map_t* map)
 				}
 				else if (entity->sprite == 224) {
 					monsterType = WEREWOLF;
+				}
+				else if (entity->sprite == 225) {
+					monsterType = GREY_WEREWOLF;
+				}
+				else if (entity->sprite == 226) {
+					monsterType = BANSHEE;
+				}
+				else if (entity->sprite == 227) {
+					monsterType = WILL_O_THE_WISP;
+				}
+				else if (entity->sprite == 228) {
+					monsterType = CROW;
+				}
+				else if (entity->sprite == 229) {
+					monsterType = ENT;
+				}
+				else if (entity->sprite == 230) {
+					monsterType = JACK_O_LANTERN;
+				}
+				else if (entity->sprite == 231) {
+					monsterType = MR_SCARECROW;
+				}
+				else if (entity->sprite == 232) {
+					monsterType = GINEVRA;
+				}
+				else if (entity->sprite == 233) {
+					monsterType = GRETTA;
+				}
+				else if (entity->sprite == 234) {
+					monsterType = GRIMELDA;
+				}
+				else if (entity->sprite == 235) {
+					monsterType = CULTIST;
+				}
+				else if (entity->sprite == 236) {
+					monsterType = FLESH_GOLEM;
 				}
 				else
 				{
@@ -4041,6 +4119,78 @@ void assignActions(map_t* map)
 						entity->focalx = limbs[WEREWOLF][0][0]; // 1
 						entity->focaly = limbs[WEREWOLF][0][1]; // 0
 						entity->focalz = limbs[WEREWOLF][0][2]; // -2
+						break;
+					case GREY_WEREWOLF:
+						entity->z = -8.5;
+						entity->focalx = limbs[GREY_WEREWOLF][0][0]; // 1
+						entity->focaly = limbs[GREY_WEREWOLF][0][1]; // 0
+						entity->focalz = limbs[GREY_WEREWOLF][0][2]; // -2
+						break;
+					case BANSHEE:
+						entity->z = -8.5;
+						entity->focalx = limbs[BANSHEE][0][0]; // 1
+						entity->focaly = limbs[BANSHEE][0][1]; // 0
+						entity->focalz = limbs[BANSHEE][0][2]; // -2
+						break;
+					case WILL_O_THE_WISP:
+						entity->z = -4.5;
+						entity->focalx = limbs[WILL_O_THE_WISP][0][0]; // 1
+						entity->focaly = limbs[WILL_O_THE_WISP][0][1]; // 0
+						entity->focalz = limbs[WILL_O_THE_WISP][0][2]; // -2
+						break;
+					case CROW:
+						entity->z = -4.5;
+						entity->focalx = limbs[CROW][0][0]; // 1
+						entity->focaly = limbs[CROW][0][1]; // 0
+						entity->focalz = limbs[CROW][0][2]; // -2
+						break;
+					case ENT:
+						entity->z = -8.5;
+						entity->focalx = limbs[ENT][0][0]; // 1
+						entity->focaly = limbs[ENT][0][1]; // 0
+						entity->focalz = limbs[ENT][0][2]; // -2
+						break;
+					case JACK_O_LANTERN:
+						entity->z = -8.5;
+						entity->focalx = limbs[JACK_O_LANTERN][0][0]; // 1
+						entity->focaly = limbs[JACK_O_LANTERN][0][1]; // 0
+						entity->focalz = limbs[JACK_O_LANTERN][0][2]; // -2
+						break;
+					case MR_SCARECROW:
+						entity->z = -8.5;
+						entity->focalx = limbs[MR_SCARECROW][0][0]; // 1
+						entity->focaly = limbs[MR_SCARECROW][0][1]; // 0
+						entity->focalz = limbs[MR_SCARECROW][0][2]; // -2
+						break;
+					case GINEVRA:
+						entity->z = -3;
+						entity->focalx = limbs[GINEVRA][0][0]; // 1
+						entity->focaly = limbs[GINEVRA][0][1]; // 0
+						entity->focalz = limbs[GINEVRA][0][2]; // -2
+						break;
+					case GRETTA:
+						entity->z = -3;
+						entity->focalx = limbs[GRETTA][0][0]; // 1
+						entity->focaly = limbs[GRETTA][0][1]; // 0
+						entity->focalz = limbs[GRETTA][0][2]; // -2
+						break;
+					case GRIMELDA:
+						entity->z = -3;
+						entity->focalx = limbs[GRIMELDA][0][0]; // 1
+						entity->focaly = limbs[GRIMELDA][0][1]; // 0
+						entity->focalz = limbs[GRIMELDA][0][2]; // -2
+						break;
+					case CULTIST:
+						entity->z = -3;
+						entity->focalx = limbs[CULTIST][0][0]; // 1
+						entity->focaly = limbs[CULTIST][0][1]; // 0
+						entity->focalz = limbs[CULTIST][0][2]; // -2
+						break;
+					case FLESH_GOLEM:
+						entity->z = -4;
+						entity->focalx = limbs[FLESH_GOLEM][0][0]; // 1
+						entity->focaly = limbs[FLESH_GOLEM][0][1]; // 0
+						entity->focalz = limbs[FLESH_GOLEM][0][2]; // -2
 						break;
 					default:
 						break;
@@ -6680,7 +6830,7 @@ void assignActions(map_t* map)
 				entity->portalVictoryType = 3;
 				break;
 				// big big chungus
-			case 235:
+			case 261:
 				entity->x += 8;
 				entity->y += 8;
 				entity->z = 4;

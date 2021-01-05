@@ -1285,6 +1285,8 @@ void spellEffectCharmMonster(Entity& my, spellElement_t& element, Entity* parent
 				case EYEBALL:
 				case DUSTDEVIL:
 				case SKU_LIT:
+				case JACK_O_LANTERN:
+				case FLESH_GOLEM:
 					difficulty = 1;
 					break;
 				case CREATURE_IMP:
@@ -1300,6 +1302,11 @@ void spellEffectCharmMonster(Entity& my, spellElement_t& element, Entity* parent
 				case PARASITE:
 				case RAN_GIC:
 				case FROGMAN:
+				case BANSHEE:
+				case WILL_O_THE_WISP:
+				case CROW:
+				case ENT:
+				case CULTIST:
 					difficulty = 2;
 					break;
 				case CRYSTALGOLEM:
@@ -1307,6 +1314,7 @@ void spellEffectCharmMonster(Entity& my, spellElement_t& element, Entity* parent
 				case CHOLOROSH:
 				case WAN_RIT:
 				case WEREWOLF:
+				case GREY_WEREWOLF:
 					difficulty = 5;
 					break;
 				case COCKATRICE:
@@ -1323,6 +1331,10 @@ void spellEffectCharmMonster(Entity& my, spellElement_t& element, Entity* parent
 				case METALLICBEAST:
 				case CLONE_FALLEN:
 				case BIGWOG:
+				case MR_SCARECROW:
+				case GINEVRA:
+				case GRETTA:
+				case GRIMELDA:
 					difficulty = 666;
 					break;
 			}

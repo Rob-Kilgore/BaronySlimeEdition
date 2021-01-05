@@ -105,14 +105,16 @@ Notes:  * "creaturename" means the name of the creature all lowercase
         * this is the sight range for monster
         * don't forget the comma on the previous entry
     5. Add block for something about rotation, idk. But it's around line 700
-        * Same idea for what we did in step 10.3
+        * Same idea for what we did in step 11.3
     6. Add initialization for monster at end of a big if-else if statement around line 1600
         * copy last else if block and change number to first model line number minus 1 and init statement to initCreaturename
-    7. Add another initialization for monster at end of a switch case statement around line 2100
+    7. Add monster animate function in if-else if statement around line 1850
+        * change my->sprite number to line in models.txt minus 1, and update animate function to either creaturenameAnimate or creaturenamemoveBodyparts (depending on what your template monster has)
+    8. Add another initialization for monster at end of a switch case statement around line 2100
         * same idea, but change case line to "case CREATURENAME" and the init statement to the same as the previous step
-    8. Set death function in switch case statement around line 3300
+    9. Set death function in switch case statement around line 3300
         * copy pattern for previous monsters
-    9. Set animation function around line 8000 in big if-else if statement
+    10. Set animation function around line 8000 in big if-else if statement
         * copy else if block from template monster (not necessarily monster at end of block bc animate vs. moveBodyparts), change type to new monster type
         * change function to have new monster name
 14. Update magic.cpp

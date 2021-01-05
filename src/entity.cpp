@@ -795,13 +795,49 @@ void Entity::killedByMonsterObituary(Entity* victim)
 				victim->setObituary(language[2185]);
 				break;
 			case FROGMAN:
-				victim->setObituary(language[2186]);
+				victim->setObituary(language[7150]);
 				break;
 			case BIGWOG:
-				victim->setObituary(language[2187]);
+				victim->setObituary(language[7151]);
 				break;
 			case WEREWOLF:
-				victim->setObituary(language[2188]);
+				victim->setObituary(language[7152]);
+				break;
+			case GREY_WEREWOLF:
+				victim->setObituary(language[7153]);
+				break;
+			case BANSHEE:
+				victim->setObituary(language[7154]);
+				break;
+			case WILL_O_THE_WISP:
+				victim->setObituary(language[7155]);
+				break;
+			case CROW:
+				victim->setObituary(language[7156]);
+				break;
+			case ENT:
+				victim->setObituary(language[7157]);
+				break;
+			case JACK_O_LANTERN:
+				victim->setObituary(language[7158]);
+				break;
+			case MR_SCARECROW:
+				victim->setObituary(language[7159]);
+				break;
+			case GINEVRA:
+				victim->setObituary(language[7160]);
+				break;
+			case GRETTA:
+				victim->setObituary(language[7161]);
+				break;
+			case GRIMELDA:
+				victim->setObituary(language[7162]);
+				break;
+			case CULTIST:
+				victim->setObituary(language[7163]);
+				break;
+			case FLESH_GOLEM:
+				victim->setObituary(language[7164]);
 				break;
 			default:
 				victim->setObituary(language[1500]);

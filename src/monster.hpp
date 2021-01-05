@@ -72,9 +72,21 @@ enum Monster : int
 	CLONE_FALLEN,
 	FROGMAN,
 	BIGWOG,
-	WEREWOLF
+	WEREWOLF,
+	GREY_WEREWOLF,
+	BANSHEE,
+	WILL_O_THE_WISP,
+	CROW,
+	ENT,
+	JACK_O_LANTERN,
+	MR_SCARECROW,
+	GINEVRA,
+	GRETTA,
+	GRIMELDA,
+	CULTIST,
+	FLESH_GOLEM
 };
-const int NUMMONSTERS = 60;
+const int NUMMONSTERS = 72;
 extern int kills[NUMMONSTERS];
 
 static char monstertypename[][16] =
@@ -138,7 +150,19 @@ static char monstertypename[][16] =
 	"clonefallen",
 	"frogman",
 	"bigwog",
-	"werewolf"
+	"werewolf",
+	"greywerewolf",
+	"banshee",
+	"willothewisp",
+	"crow",
+	"ent",
+	"jackolantern",
+	"mrscarecrow",
+	"ginevra",
+	"gretta",
+	"grimelda",
+	"cultist",
+	"fleshgolem"
 };
 
 static char monstertypenamecapitalized[][16] =
@@ -202,7 +226,19 @@ static char monstertypenamecapitalized[][16] =
 	"Clonefallen",
 	"Frogman",
 	"Bigwog",
-	"Werewolf"
+	"Werewolf",
+	"Greywerewolf",
+	"Banshee",
+	"Willothewisp",
+	"Crow",
+	"Ent",
+	"Jackolantern",
+	"Mrscarecrow",
+	"Ginevra",
+	"Gretta",
+	"Grimelda",
+	"Cultist",
+	"Fleshgolem"
 };
 
 // body part focal points
@@ -273,7 +309,19 @@ static char gibtype[NUMMONSTERS] =
 	0,	//CLONE_FALLEN
 	2,	//FROGMAN
 	2,	//BIGWOG
-	1	//WEREWOLF
+	1,	//WEREWOLF
+	1,	//GREY_WEREWOLF
+	0,	//BANSHEE,
+	0,	//WILL_O_THE_WISP,
+	1,	//CROW,
+	0,	//ENT,
+	2,	//JACK_O_LANTERN,
+	0,	//MR_SCARECROW,
+	1,	//GINEVRA,
+	1,	//GRETTA,
+	1,	//GRIMELDA,
+	1,	//CULTIST,
+	1	//FLESH_GOLEM
 };
 
 // columns go like this:
@@ -341,6 +389,18 @@ static double damagetables[NUMMONSTERS][7] =
 	{ 1.1, 0.8, 1.1, 0.8, 0.9, 1.f, 0.8 }, // frogman
 	{ 1.f, 1.f, 1.f, 1.f, 1.f, 1.f, 1.f }, // bigwog
 	{ 1.f, 1.f, 1.f, 1.f, 1.f, 1.f, 1.f }, // werewolf
+	{ 1.f, 1.f, 1.f, 1.f, 1.f, 1.f, 1.f }, // greywerewolf
+	{ 1.f, 1.f, 1.f, 1.f, 1.f, 1.f, 1.f }, // banshee
+	{ 1.f, 1.f, 1.f, 1.f, 1.f, 1.f, 1.f }, // willothewisp
+	{ 1.f, 1.f, 1.f, 1.f, 1.f, 1.f, 1.f }, // crow
+	{ 1.f, 1.f, 1.f, 1.f, 1.f, 1.f, 1.f }, // ent
+	{ 1.f, 1.f, 1.f, 1.f, 1.f, 1.f, 1.f }, // jackolantern
+	{ 1.f, 1.f, 1.f, 1.f, 1.f, 1.f, 1.f }, // mrscarecrow
+	{ 1.f, 1.f, 1.f, 1.f, 1.f, 1.f, 1.f }, // ginevra
+	{ 1.f, 1.f, 1.f, 1.f, 1.f, 1.f, 1.f }, // gretta
+	{ 1.f, 1.f, 1.f, 1.f, 1.f, 1.f, 1.f }, // grimelda
+	{ 1.f, 1.f, 1.f, 1.f, 1.f, 1.f, 1.f }, // cultist
+	{ 1.f, 1.f, 1.f, 1.f, 1.f, 1.f, 1.f }  // fleshgolem
 };
 
 enum DamageTableType : int
@@ -605,6 +665,18 @@ void initCloneFallen(Entity* my, Stat* myStats);
 void initFrogman(Entity* my, Stat* myStats);
 void initBigWog(Entity* my, Stat* myStats);
 void initWerewolf(Entity* my, Stat* myStats);
+void initGreyWerewolf(Entity* my, Stat* myStats);
+void initBanshee(Entity* my, Stat* myStats);
+void initWillOTheWisp(Entity* my, Stat* myStats);
+void initCrow(Entity* my, Stat* myStats);
+void initEnt(Entity* my, Stat* myStats);
+void initJackOLantern(Entity* my, Stat* myStats);
+void initMrScarecrow(Entity* my, Stat* myStats);
+void initGinevra(Entity* my, Stat* myStats);
+void initGretta(Entity* my, Stat* myStats);
+void initGrimelda(Entity* my, Stat* myStats);
+void initCultist(Entity* my, Stat* myStats);
+void initFleshGolem(Entity* my, Stat* myStats);
 
 //--act*Limb functions--
 void actHumanLimb(Entity* my);
@@ -652,6 +724,17 @@ void actCloneFallenLimb(Entity* my);
 void actFrogmanLimb(Entity* my);
 void actBigWogLimb(Entity* my);
 void actWerewolfLimb(Entity* my);
+void actGreyWerewolfLimb(Entity* my);
+void actBansheeLimb(Entity* my);
+void actCrowLimb(Entity* my);
+void actEntLimb(Entity* my);
+void actJackOLanternLimb(Entity* my);
+void actMrScarecrowLimb(Entity* my);
+void actGinevraLimb(Entity* my);
+void actGrettaLimb(Entity* my);
+void actGrimeldaLimb(Entity* my);
+void actCultistLimb(Entity* my);
+void actFleshGolemLimb(Entity* my);
 
 //--*Die functions--
 void humanDie(Entity* my);
@@ -709,6 +792,18 @@ void cloneFallenDie(Entity* my);
 void frogmanDie(Entity* my);
 void bigwogDie(Entity* my);
 void werewolfDie(Entity* my);
+void greywerewolfDie(Entity* my);
+void bansheeDie(Entity* my);
+void willothewispDie(Entity* my);
+void crowDie(Entity* my);
+void entDie(Entity* my);
+void jackolanternDie(Entity* my);
+void mrscarecrowDie(Entity* my);
+void ginevraDie(Entity* my);
+void grettaDie(Entity* my);
+void grimeldaDie(Entity* my);
+void cultistDie(Entity* my);
+void fleshgolemDie(Entity* my);
 
 //--*MoveBodyparts functions--
 void humanMoveBodyparts(Entity* my, Stat* myStats, double dist);
@@ -766,12 +861,26 @@ void cloneFallenAnimate(Entity* my, Stat* myStats, double dist);
 void frogmanMoveBodyparts(Entity* my, Stat* myStats, double dist);
 void bigwogMoveBodyparts(Entity* my, Stat* myStats, double dist);
 void werewolfMoveBodyparts(Entity* my, Stat* myStats, double dist);
+void greywerewolfMoveBodyparts(Entity* my, Stat* myStats, double dist);
+void bansheeMoveBodyparts(Entity* my, Stat* myStats, double dist);
+void willothewispAnimate(Entity* my, double dist);
+void crowMoveBodyparts(Entity* my, Stat* myStats, double dist);
+void entMoveBodyparts(Entity* my, Stat* myStats, double dist);
+void jackolanternMoveBodyparts(Entity* my, Stat* myStats, double dist);
+void mrscarecrowMoveBodyparts(Entity* my, Stat* myStats, double dist);
+void ginevraMoveBodyparts(Entity* my, Stat* myStats, double dist);
+void grettaMoveBodyparts(Entity* my, Stat* myStats, double dist);
+void grimeldaMoveBodyparts(Entity* my, Stat* myStats, double dist);
+void cultistMoveBodyparts(Entity* my, Stat* myStats, double dist);
+void fleshgolemMoveBodyparts(Entity* my, Stat* myStats, double dist);
 
 //--misc functions--
 void actMinotaurTrap(Entity* my);
 void actMinotaurTimer(Entity* my);
 void actMinotaurCeilingBuster(Entity* my);
 void actDemonCeilingBuster(Entity* my);
+void actWerewolfCeilingBuster(Entity* my);
+void actGreyWerewolfCeilingBuster(Entity* my);
 
 void actDevilTeleport(Entity* my);
 
@@ -828,6 +937,8 @@ static const int MONSTER_POSE_MAGIC_CAST2 = 20;
 static const int MONSTER_POSE_MAGIC_CAST3 = 21;
 static const int MONSTER_POSE_GOLEM_SMASH = 22;
 static const int MONSTER_POSE_COCKATRICE_DOUBLEATTACK = 23;
+static const int MONSTER_POSE_BANSHEE_DOUBLEATTACK = 23;
+static const int MONSTER_POSE_CROW_DOUBLEATTACK = 23;
 static const int MONSTER_POSE_AUTOMATON_RECYCLE = 24;
 //static const int MONSTER_POSE_SHADOW_TELEMIMICINVISI_WINDUP = 25;
 static const int MONSTER_POSE_INSECTOID_DOUBLETHROW = 25;
@@ -840,6 +951,8 @@ static const int MONSTER_POSE_AUTOMATON_MALFUNCTION = 31;
 static const int MONSTER_POSE_LICH_FIRE_SWORD = 32;
 static const int PLAYER_POSE_GOLEM_SMASH = 33;
 static const int MONSTER_POSE_INCUBUS_TAUNT = 34;
+static const int MONSTER_POSE_HAG_TELEPORT = 35;
+static const int MONSTER_POSE_HAG_TAUNT = 36;
 
 //--monster special cooldowns
 static const int MONSTER_SPECIAL_COOLDOWN_GOLEM = 150;

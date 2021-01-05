@@ -737,6 +737,9 @@ public:
 	// incubus teleport spells
 	void incubusTeleportToTarget(const Entity* target);
 	void incubusTeleportRandom();
+	// hag teleport spells
+	void hagTeleportToTarget(const Entity* target);
+	void hagTeleportRandom();
 	//Shadow teleport spells.
 	void shadowTeleportToTarget(const Entity* target, int range);
 	//Lich effects
@@ -1036,7 +1039,7 @@ void actTextSource(Entity* my);
 static const int NUM_ITEM_STRINGS = 403;
 static const int NUM_ITEM_STRINGS_BY_TYPE = 162;
 static const int NUM_EDITOR_SPRITES = 240;
-static const int NUM_EDITOR_TILES = 539;
+static const int NUM_EDITOR_TILES = 608;
 
 // furniture types.
 static const int FURNITURE_TABLE = 0;
@@ -1181,7 +1184,19 @@ public:
 		TO_CLONEFALLEN,
 		TO_FROGMAN,
 		TO_BIGWOG,
-		TO_WEREWOLF
+		TO_WEREWOLF,
+		TO_GREYWEREWOLF,
+		TO_BANSHEE,
+		TO_WILLOTHEWISP,
+		TO_CROW,
+		TO_ENT,
+		TO_JACKOLANTERN,
+		TO_MRSCARECROW,
+		TO_GINEVRA,
+		TO_GRETTA,
+		TO_GRIMELDA,
+		TO_CULTIST,
+		TO_FLESHGOLEM
 	};
 	enum ScriptType : int
 	{

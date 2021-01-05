@@ -1,8 +1,8 @@
 /*-------------------------------------------------------------------------------
 
 	BARONY
-	File: monster_werewolf.cpp
-	Desc: implements all of the werewolf monster's code
+	File: monster_greywerewolf.cpp
+	Desc: implements all of the greywerewolf monster's code
 
 	Copyright 2013-2016 (c) Turning Wheel LLC, all rights reserved.
 	See LICENSE for details.
@@ -20,12 +20,12 @@
 #include "collision.hpp"
 #include "player.hpp"
 
-void initWerewolf(Entity* my, Stat* myStats)
+void initGreyWerewolf(Entity* my, Stat* myStats)
 {
 	int c;
 	node_t* node;
 
-	my->initMonster(1513);
+	my->initMonster(1519);
 
 	if ( multiplayer != CLIENT )
 	{
@@ -43,7 +43,7 @@ void initWerewolf(Entity* my, Stat* myStats)
 				myStats->leader_uid = 0;
 			}
 
-			if ( !strncmp (myStats->name, "blood werewolf", strlen("blood werewolf")) )
+			if ( !strncmp (myStats->name, "blood greywerewolf", strlen("blood greywerewolf")) )
 			{
 				//myStats->weapon = newItem(SPELLBOOK_BLEED, EXCELLENT, 0, 1, 0, false, nullptr);
 			}
@@ -66,7 +66,7 @@ void initWerewolf(Entity* my, Stat* myStats)
 				myStats->LVL = 30;
 				for ( c = 0; c < 3; c++ )
 				{
-					Entity* entity = summonMonster(WEREWOLF, my->x, my->y);
+					Entity* entity = summonMonster(GREY_WEREWOLF, my->x, my->y);
 					if ( entity )
 					{
 						entity->parent = my->getUID();
@@ -111,17 +111,17 @@ void initWerewolf(Entity* my, Stat* myStats)
 	}
 
 	// torso
-	Entity* entity = newEntity(1518, 0, map.entities, nullptr); //Limb entity.
+	Entity* entity = newEntity(1524, 0, map.entities, nullptr); //Limb entity.
 	entity->sizex = 4;
 	entity->sizey = 4;
 	entity->skill[2] = my->getUID();
 	entity->flags[PASSABLE] = true;
 	entity->flags[NOUPDATE] = true;
 	entity->flags[USERFLAG2] = my->flags[USERFLAG2];
-	entity->focalx = limbs[WEREWOLF][1][0]; // 0
-	entity->focaly = limbs[WEREWOLF][1][1]; // 0
-	entity->focalz = limbs[WEREWOLF][1][2]; // 0
-	entity->behavior = &actWerewolfLimb;
+	entity->focalx = limbs[GREY_WEREWOLF][1][0]; // 0
+	entity->focaly = limbs[GREY_WEREWOLF][1][1]; // 0
+	entity->focalz = limbs[GREY_WEREWOLF][1][2]; // 0
+	entity->behavior = &actGreyWerewolfLimb;
 	entity->parent = my->getUID();
 	node = list_AddNodeLast(&my->children);
 	node->element = entity;
@@ -130,17 +130,17 @@ void initWerewolf(Entity* my, Stat* myStats)
 	my->bodyparts.push_back(entity);
 
 	// right leg
-	entity = newEntity(1517, 0, map.entities, nullptr); //Limb entity.
+	entity = newEntity(1523, 0, map.entities, nullptr); //Limb entity.
 	entity->sizex = 4;
 	entity->sizey = 4;
 	entity->skill[2] = my->getUID();
 	entity->flags[PASSABLE] = true;
 	entity->flags[NOUPDATE] = true;
 	entity->flags[USERFLAG2] = my->flags[USERFLAG2];
-	entity->focalx = limbs[WEREWOLF][2][0]; // 1
-	entity->focaly = limbs[WEREWOLF][2][1]; // 0
-	entity->focalz = limbs[WEREWOLF][2][2]; // 5
-	entity->behavior = &actWerewolfLimb;
+	entity->focalx = limbs[GREY_WEREWOLF][2][0]; // 1
+	entity->focaly = limbs[GREY_WEREWOLF][2][1]; // 0
+	entity->focalz = limbs[GREY_WEREWOLF][2][2]; // 5
+	entity->behavior = &actGreyWerewolfLimb;
 	entity->parent = my->getUID();
 	node = list_AddNodeLast(&my->children);
 	node->element = entity;
@@ -149,17 +149,17 @@ void initWerewolf(Entity* my, Stat* myStats)
 	my->bodyparts.push_back(entity);
 
 	// left leg
-	entity = newEntity(1516, 0, map.entities, nullptr); //Limb entity.
+	entity = newEntity(1522, 0, map.entities, nullptr); //Limb entity.
 	entity->sizex = 4;
 	entity->sizey = 4;
 	entity->skill[2] = my->getUID();
 	entity->flags[PASSABLE] = true;
 	entity->flags[NOUPDATE] = true;
 	entity->flags[USERFLAG2] = my->flags[USERFLAG2];
-	entity->focalx = limbs[WEREWOLF][3][0]; // 1
-	entity->focaly = limbs[WEREWOLF][3][1]; // 0
-	entity->focalz = limbs[WEREWOLF][3][2]; // 5
-	entity->behavior = &actWerewolfLimb;
+	entity->focalx = limbs[GREY_WEREWOLF][3][0]; // 1
+	entity->focaly = limbs[GREY_WEREWOLF][3][1]; // 0
+	entity->focalz = limbs[GREY_WEREWOLF][3][2]; // 5
+	entity->behavior = &actGreyWerewolfLimb;
 	entity->parent = my->getUID();
 	node = list_AddNodeLast(&my->children);
 	node->element = entity;
@@ -168,17 +168,17 @@ void initWerewolf(Entity* my, Stat* myStats)
 	my->bodyparts.push_back(entity);
 
 	// right arm
-	entity = newEntity(1515, 0, map.entities, nullptr); //Limb entity.
+	entity = newEntity(1521, 0, map.entities, nullptr); //Limb entity.
 	entity->sizex = 4;
 	entity->sizey = 4;
 	entity->skill[2] = my->getUID();
 	entity->flags[PASSABLE] = true;
 	entity->flags[NOUPDATE] = true;
 	entity->flags[USERFLAG2] = my->flags[USERFLAG2];
-	entity->focalx = limbs[WEREWOLF][4][0]; // -.25
-	entity->focaly = limbs[WEREWOLF][4][1]; // 0
-	entity->focalz = limbs[WEREWOLF][4][2]; // 4
-	entity->behavior = &actWerewolfLimb;
+	entity->focalx = limbs[GREY_WEREWOLF][4][0]; // -.25
+	entity->focaly = limbs[GREY_WEREWOLF][4][1]; // 0
+	entity->focalz = limbs[GREY_WEREWOLF][4][2]; // 4
+	entity->behavior = &actGreyWerewolfLimb;
 	entity->parent = my->getUID();
 	node = list_AddNodeLast(&my->children);
 	node->element = entity;
@@ -187,17 +187,17 @@ void initWerewolf(Entity* my, Stat* myStats)
 	my->bodyparts.push_back(entity);
 
 	// left arm
-	entity = newEntity(1514, 0, map.entities, nullptr); //Limb entity.
+	entity = newEntity(1520, 0, map.entities, nullptr); //Limb entity.
 	entity->sizex = 4;
 	entity->sizey = 4;
 	entity->skill[2] = my->getUID();
 	entity->flags[PASSABLE] = true;
 	entity->flags[NOUPDATE] = true;
 	entity->flags[USERFLAG2] = my->flags[USERFLAG2];
-	entity->focalx = limbs[WEREWOLF][5][0]; // -.25
-	entity->focaly = limbs[WEREWOLF][5][1]; // 0
-	entity->focalz = limbs[WEREWOLF][5][2]; // 4
-	entity->behavior = &actWerewolfLimb;
+	entity->focalx = limbs[GREY_WEREWOLF][5][0]; // -.25
+	entity->focaly = limbs[GREY_WEREWOLF][5][1]; // 0
+	entity->focalz = limbs[GREY_WEREWOLF][5][2]; // 4
+	entity->behavior = &actGreyWerewolfLimb;
 	entity->parent = my->getUID();
 	node = list_AddNodeLast(&my->children);
 	node->element = entity;
@@ -206,12 +206,12 @@ void initWerewolf(Entity* my, Stat* myStats)
 	my->bodyparts.push_back(entity);
 }
 
-void actWerewolfLimb(Entity* my)
+void actGreyWerewolfLimb(Entity* my)
 {
 	my->actMonsterLimb();
 }
 
-void werewolfDie(Entity* my)
+void greywerewolfDie(Entity* my)
 {
 	int c;
 	for ( c = 0; c < 5; c++ )
@@ -230,9 +230,9 @@ void werewolfDie(Entity* my)
 	return;
 }
 
-#define WEREWOLFWALKSPEED .125
+#define GREY_WEREWOLFWALKSPEED .125
 
-void werewolfMoveBodyparts(Entity* my, Stat* myStats, double dist)
+void greywerewolfMoveBodyparts(Entity* my, Stat* myStats, double dist)
 {
 	node_t* node;
 	Entity* entity = nullptr;
@@ -320,7 +320,7 @@ void werewolfMoveBodyparts(Entity* my, Stat* myStats, double dist)
 				{
 					if ( !rightbody->skill[0] )
 					{
-						entity->pitch -= dist * WEREWOLFWALKSPEED;
+						entity->pitch -= dist * GREY_WEREWOLFWALKSPEED;
 						if ( entity->pitch < -PI / 4.0 )
 						{
 							entity->pitch = -PI / 4.0;
@@ -332,7 +332,7 @@ void werewolfMoveBodyparts(Entity* my, Stat* myStats, double dist)
 					}
 					else
 					{
-						entity->pitch += dist * WEREWOLFWALKSPEED;
+						entity->pitch += dist * GREY_WEREWOLFWALKSPEED;
 						if ( entity->pitch > PI / 4.0 )
 						{
 							entity->pitch = PI / 4.0;
@@ -471,7 +471,7 @@ void werewolfMoveBodyparts(Entity* my, Stat* myStats, double dist)
 				{
 					if ( entity->skill[0] )
 					{
-						entity->pitch -= dist * WEREWOLFWALKSPEED;
+						entity->pitch -= dist * GREY_WEREWOLFWALKSPEED;
 						if ( entity->pitch < -PI / 4.0 )
 						{
 							entity->skill[0] = 0;
@@ -480,7 +480,7 @@ void werewolfMoveBodyparts(Entity* my, Stat* myStats, double dist)
 					}
 					else
 					{
-						entity->pitch += dist * WEREWOLFWALKSPEED;
+						entity->pitch += dist * GREY_WEREWOLFWALKSPEED;
 						if ( entity->pitch > PI / 4.0 )
 						{
 							entity->skill[0] = 1;
@@ -573,7 +573,7 @@ void werewolfMoveBodyparts(Entity* my, Stat* myStats, double dist)
 	}
 }
 
-void actWerewolfCeilingBuster(Entity* my)
+void actGreyWerewolfCeilingBuster(Entity* my)
 {
 	double x, y;
 
@@ -608,7 +608,7 @@ void actWerewolfCeilingBuster(Entity* my)
 						Stat* myStats = my->getStats();
 						if ( myStats )
 						{
-							// easy hack to stop the werewolf while he breaks stuff
+							// easy hack to stop the greywerewolf while he breaks stuff
 							myStats->EFFECTS[EFF_PARALYZED] = true;
 							myStats->EFFECTS_TIMERS[EFF_PARALYZED] = TICKS_PER_SECOND / 2;
 						}

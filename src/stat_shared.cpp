@@ -1912,7 +1912,319 @@ void setDefaultMonsterStats(Stat* stats, int sprite)
 			stats->MAXMP = 100;
 			stats->OLDHP = stats->HP;
 			stats->STR = 50;
-			stats->DEX = -30;
+			stats->DEX = 3;
+			stats->CON = 30;
+			stats->INT = 5;
+			stats->PER = 5;
+			stats->CHR = -5;
+			stats->EXP = 0;
+			stats->LVL = 60;
+			stats->GOLD = 400;
+			stats->HUNGER = 900;
+
+			stats->EDITOR_ITEMS[ITEM_SLOT_INV_1] = 1;
+			stats->EDITOR_ITEMS[ITEM_SLOT_INV_1 + ITEM_CHANCE] = 100; //Random Items
+			break;
+		case 225:
+		case (1000 + GREY_WEREWOLF):
+			stats->type = GREY_WEREWOLF;
+			stats->sex = MALE;
+			stats->appearance = 0;
+			stats->inventory.first = NULL;
+			stats->inventory.last = NULL;
+			stats->HP = 300;
+			stats->MAXHP = 300;
+			stats->MP = 100;
+			stats->MAXMP = 100;
+			stats->OLDHP = stats->HP;
+			stats->STR = 50;
+			stats->DEX = 3;
+			stats->CON = 30;
+			stats->INT = 5;
+			stats->PER = 5;
+			stats->CHR = -5;
+			stats->EXP = 0;
+			stats->LVL = 60;
+			stats->GOLD = 400;
+			stats->HUNGER = 900;
+
+			stats->EDITOR_ITEMS[ITEM_SLOT_INV_1] = 1;
+			stats->EDITOR_ITEMS[ITEM_SLOT_INV_1 + ITEM_CHANCE] = 100; //Random Items
+			break;
+		case 226:
+		case (1000 + BANSHEE):
+			stats->type = BANSHEE;
+			stats->sex = FEMALE;
+			stats->appearance = 0;
+			stats->inventory.first = NULL;
+			stats->inventory.last = NULL;
+			stats->HP = 300;
+			stats->MAXHP = 300;
+			stats->MP = 100;
+			stats->MAXMP = 100;
+			stats->OLDHP = stats->HP;
+			stats->STR = 50;
+			stats->DEX = 3;
+			stats->CON = 30;
+			stats->INT = 5;
+			stats->PER = 5;
+			stats->CHR = -5;
+			stats->EXP = 0;
+			stats->LVL = 60;
+			stats->GOLD = 400;
+			stats->HUNGER = 900;
+
+			stats->EDITOR_ITEMS[ITEM_SLOT_INV_1] = 1;
+			stats->EDITOR_ITEMS[ITEM_SLOT_INV_1 + ITEM_CHANCE] = 100; //Random Items
+			break;
+		case 227:
+		case (1000 + WILL_O_THE_WISP):
+			stats->type = WILL_O_THE_WISP;
+			stats->sex = static_cast<sex_t>(rand() % 2);
+			stats->appearance = 0;
+			stats->inventory.first = NULL;
+			stats->inventory.last = NULL;
+			stats->HP = 300;
+			stats->MAXHP = 300;
+			stats->MP = 100;
+			stats->MAXMP = 100;
+			stats->OLDHP = stats->HP;
+			stats->STR = 50;
+			stats->DEX = 3;
+			stats->CON = 30;
+			stats->INT = 5;
+			stats->PER = 5;
+			stats->CHR = -5;
+			stats->EXP = 0;
+			stats->LVL = 60;
+			stats->GOLD = 400;
+			stats->HUNGER = 900;
+
+			stats->EDITOR_ITEMS[ITEM_SLOT_INV_1] = 1;
+			stats->EDITOR_ITEMS[ITEM_SLOT_INV_1 + ITEM_CHANCE] = 100; //Random Items
+			break;
+		case 228:
+		case (1000 + CROW):
+			stats->type = CROW;
+			stats->sex = static_cast<sex_t>(rand() % 2);
+			stats->appearance = 0;
+			stats->inventory.first = NULL;
+			stats->inventory.last = NULL;
+			stats->HP = 300;
+			stats->MAXHP = 300;
+			stats->MP = 100;
+			stats->MAXMP = 100;
+			stats->OLDHP = stats->HP;
+			stats->STR = 50;
+			stats->DEX = 3;
+			stats->CON = 30;
+			stats->INT = 5;
+			stats->PER = 5;
+			stats->CHR = -5;
+			stats->EXP = 0;
+			stats->LVL = 60;
+			stats->GOLD = 400;
+			stats->HUNGER = 900;
+
+			stats->EDITOR_ITEMS[ITEM_SLOT_INV_1] = 1;
+			stats->EDITOR_ITEMS[ITEM_SLOT_INV_1 + ITEM_CHANCE] = 100; //Random Items
+			break;
+		case 229:
+		case (1000 + ENT):
+			stats->type = ENT;
+			stats->sex = static_cast<sex_t>(rand() % 2);
+			stats->appearance = 0;
+			stats->inventory.first = NULL;
+			stats->inventory.last = NULL;
+			stats->HP = 300;
+			stats->MAXHP = 300;
+			stats->MP = 100;
+			stats->MAXMP = 100;
+			stats->OLDHP = stats->HP;
+			stats->STR = 50;
+			stats->DEX = 3;
+			stats->CON = 30;
+			stats->INT = 5;
+			stats->PER = 5;
+			stats->CHR = -5;
+			stats->EXP = 0;
+			stats->LVL = 60;
+			stats->GOLD = 400;
+			stats->HUNGER = 900;
+
+			stats->EDITOR_ITEMS[ITEM_SLOT_INV_1] = 1;
+			stats->EDITOR_ITEMS[ITEM_SLOT_INV_1 + ITEM_CHANCE] = 100; //Random Items
+			break;
+		case 230:
+		case (1000 + JACK_O_LANTERN):
+			stats->type = JACK_O_LANTERN;
+			stats->sex = static_cast<sex_t>(rand() % 2);
+			stats->appearance = 0;
+			stats->inventory.first = NULL;
+			stats->inventory.last = NULL;
+			stats->HP = 300;
+			stats->MAXHP = 300;
+			stats->MP = 100;
+			stats->MAXMP = 100;
+			stats->OLDHP = stats->HP;
+			stats->STR = 50;
+			stats->DEX = 3;
+			stats->CON = 30;
+			stats->INT = 5;
+			stats->PER = 5;
+			stats->CHR = -5;
+			stats->EXP = 0;
+			stats->LVL = 60;
+			stats->GOLD = 400;
+			stats->HUNGER = 900;
+
+			stats->EDITOR_ITEMS[ITEM_SLOT_INV_1] = 1;
+			stats->EDITOR_ITEMS[ITEM_SLOT_INV_1 + ITEM_CHANCE] = 100; //Random Items
+			break;
+		case 231:
+		case (1000 + MR_SCARECROW):
+			stats->type = MR_SCARECROW;
+			stats->sex = MALE;
+			stats->appearance = 0;
+			stats->inventory.first = NULL;
+			stats->inventory.last = NULL;
+			stats->HP = 300;
+			stats->MAXHP = 300;
+			stats->MP = 100;
+			stats->MAXMP = 100;
+			stats->OLDHP = stats->HP;
+			stats->STR = 50;
+			stats->DEX = 3;
+			stats->CON = 30;
+			stats->INT = 5;
+			stats->PER = 5;
+			stats->CHR = -5;
+			stats->EXP = 0;
+			stats->LVL = 60;
+			stats->GOLD = 400;
+			stats->HUNGER = 900;
+
+			stats->EDITOR_ITEMS[ITEM_SLOT_INV_1] = 1;
+			stats->EDITOR_ITEMS[ITEM_SLOT_INV_1 + ITEM_CHANCE] = 100; //Random Items
+			break;
+		case 232:
+		case (1000 + GINEVRA):
+			stats->type = GINEVRA;
+			stats->sex = FEMALE;
+			stats->appearance = 0;
+			stats->inventory.first = NULL;
+			stats->inventory.last = NULL;
+			stats->HP = 300;
+			stats->MAXHP = 300;
+			stats->MP = 100;
+			stats->MAXMP = 100;
+			stats->OLDHP = stats->HP;
+			stats->STR = 50;
+			stats->DEX = 3;
+			stats->CON = 30;
+			stats->INT = 5;
+			stats->PER = 5;
+			stats->CHR = -5;
+			stats->EXP = 0;
+			stats->LVL = 60;
+			stats->GOLD = 400;
+			stats->HUNGER = 900;
+
+			stats->EDITOR_ITEMS[ITEM_SLOT_INV_1] = 1;
+			stats->EDITOR_ITEMS[ITEM_SLOT_INV_1 + ITEM_CHANCE] = 100; //Random Items
+			break;
+		case 233:
+		case (1000 + GRETTA):
+			stats->type = GRETTA;
+			stats->sex = FEMALE;
+			stats->appearance = 0;
+			stats->inventory.first = NULL;
+			stats->inventory.last = NULL;
+			stats->HP = 300;
+			stats->MAXHP = 300;
+			stats->MP = 100;
+			stats->MAXMP = 100;
+			stats->OLDHP = stats->HP;
+			stats->STR = 50;
+			stats->DEX = 3;
+			stats->CON = 30;
+			stats->INT = 5;
+			stats->PER = 5;
+			stats->CHR = -5;
+			stats->EXP = 0;
+			stats->LVL = 60;
+			stats->GOLD = 400;
+			stats->HUNGER = 900;
+
+			stats->EDITOR_ITEMS[ITEM_SLOT_INV_1] = 1;
+			stats->EDITOR_ITEMS[ITEM_SLOT_INV_1 + ITEM_CHANCE] = 100; //Random Items
+			break;
+		case 234:
+		case (1000 + GRIMELDA):
+			stats->type = GRIMELDA;
+			stats->sex = FEMALE;
+			stats->appearance = 0;
+			stats->inventory.first = NULL;
+			stats->inventory.last = NULL;
+			stats->HP = 300;
+			stats->MAXHP = 300;
+			stats->MP = 100;
+			stats->MAXMP = 100;
+			stats->OLDHP = stats->HP;
+			stats->STR = 50;
+			stats->DEX = 3;
+			stats->CON = 30;
+			stats->INT = 5;
+			stats->PER = 5;
+			stats->CHR = -5;
+			stats->EXP = 0;
+			stats->LVL = 60;
+			stats->GOLD = 400;
+			stats->HUNGER = 900;
+
+			stats->EDITOR_ITEMS[ITEM_SLOT_INV_1] = 1;
+			stats->EDITOR_ITEMS[ITEM_SLOT_INV_1 + ITEM_CHANCE] = 100; //Random Items
+			break;
+		case 235:
+		case (1000 + CULTIST):
+			stats->type = CULTIST;
+			stats->sex = static_cast<sex_t>(rand() % 2);
+			stats->appearance = 0;
+			stats->inventory.first = NULL;
+			stats->inventory.last = NULL;
+			stats->HP = 300;
+			stats->MAXHP = 300;
+			stats->MP = 100;
+			stats->MAXMP = 100;
+			stats->OLDHP = stats->HP;
+			stats->STR = 50;
+			stats->DEX = 3;
+			stats->CON = 30;
+			stats->INT = 5;
+			stats->PER = 5;
+			stats->CHR = -5;
+			stats->EXP = 0;
+			stats->LVL = 60;
+			stats->GOLD = 400;
+			stats->HUNGER = 900;
+
+			stats->EDITOR_ITEMS[ITEM_SLOT_INV_1] = 1;
+			stats->EDITOR_ITEMS[ITEM_SLOT_INV_1 + ITEM_CHANCE] = 100; //Random Items
+			break;
+		case 236:
+		case (1000 + FLESH_GOLEM):
+			stats->type = FLESH_GOLEM;
+			stats->sex = static_cast<sex_t>(rand() % 2);
+			stats->appearance = 0;
+			stats->inventory.first = NULL;
+			stats->inventory.last = NULL;
+			stats->HP = 300;
+			stats->MAXHP = 300;
+			stats->MP = 100;
+			stats->MAXMP = 100;
+			stats->OLDHP = stats->HP;
+			stats->STR = 50;
+			stats->DEX = 3;
 			stats->CON = 30;
 			stats->INT = 5;
 			stats->PER = 5;

@@ -246,6 +246,54 @@ void Entity::initMonster(int mySprite)
 			monsterFootstepType = MONSTER_FOOTSTEP_NONE;
 			monsterSpellAnimation = MONSTER_SPELLCAST_NONE;
 			break;
+		case GREY_WEREWOLF:
+			monsterFootstepType = MONSTER_FOOTSTEP_NONE;
+			monsterSpellAnimation = MONSTER_SPELLCAST_NONE;
+			break;
+		case BANSHEE:
+			monsterFootstepType = MONSTER_FOOTSTEP_NONE;
+			monsterSpellAnimation = MONSTER_SPELLCAST_NONE;
+			break;
+		case WILL_O_THE_WISP:
+			monsterFootstepType = MONSTER_FOOTSTEP_NONE;
+			monsterSpellAnimation = MONSTER_SPELLCAST_NONE;
+			break;
+		case CROW:
+			monsterFootstepType = MONSTER_FOOTSTEP_NONE;
+			monsterSpellAnimation = MONSTER_SPELLCAST_NONE;
+			break;
+		case ENT:
+			monsterFootstepType = MONSTER_FOOTSTEP_NONE;
+			monsterSpellAnimation = MONSTER_SPELLCAST_NONE;
+			break;
+		case JACK_O_LANTERN:
+			monsterFootstepType = MONSTER_FOOTSTEP_NONE;
+			monsterSpellAnimation = MONSTER_SPELLCAST_NONE;
+			break;
+		case MR_SCARECROW:
+			monsterFootstepType = MONSTER_FOOTSTEP_NONE;
+			monsterSpellAnimation = MONSTER_SPELLCAST_NONE;
+			break;
+		case GINEVRA:
+			monsterFootstepType = MONSTER_FOOTSTEP_NONE;
+			monsterSpellAnimation = MONSTER_SPELLCAST_HUMANOID;
+			break;
+		case GRETTA:
+			monsterFootstepType = MONSTER_FOOTSTEP_NONE;
+			monsterSpellAnimation = MONSTER_SPELLCAST_HUMANOID;
+			break;
+		case GRIMELDA:
+			monsterFootstepType = MONSTER_FOOTSTEP_NONE;
+			monsterSpellAnimation = MONSTER_SPELLCAST_HUMANOID;
+			break;
+		case CULTIST:
+			monsterFootstepType = MONSTER_FOOTSTEP_NONE;
+			monsterSpellAnimation = MONSTER_SPELLCAST_HUMANOID;
+			break;
+		case FLESH_GOLEM:
+			monsterFootstepType = MONSTER_FOOTSTEP_NONE;
+			monsterSpellAnimation = MONSTER_SPELLCAST_NONE;
+			break;
 
 
 		default:
@@ -490,6 +538,55 @@ int Entity::getMonsterTypeFromSprite()
 	{
 		return WEREWOLF;
 	}
+	else if (mySprite == 1519)     // grey werewolf head
+	{
+		return GREY_WEREWOLF;
+	}
+	else if (mySprite == 1525)	   // banshee head
+	{
+		return BANSHEE;
+	}
+	else if (mySprite == 1533 || mySprite == 1534)     // will o the wisp
+	{
+		return WILL_O_THE_WISP;
+	}
+	else if (mySprite == 1535)	   // crow head
+	{
+		return CROW;
+	}
+	else if (mySprite == 1541)     // ent head
+	{
+		return ENT;
+	}
+	else if (mySprite == 1547)	   // living jack o lantern head
+	{
+		return JACK_O_LANTERN;
+	}
+	else if (mySprite == 1552)     // mr scarecrow head
+	{
+		return MR_SCARECROW;
+	}
+	else if (mySprite == 1558)	   // ginevra head
+	{
+		return GINEVRA;
+	}
+	else if (mySprite == 1562)     // gretta head
+	{
+		return GRETTA;
+	}
+	else if (mySprite == 1566)	   // grimelda head
+	{
+		return GRIMELDA;
+	}
+	else if (mySprite == 1570)     // cultist head
+	{
+		return CULTIST;
+	}
+	else if (mySprite == 1576)	   // flesh golem head
+	{
+		return FLESH_GOLEM;
+	}
+
 
 	return NOTHING;
 }
