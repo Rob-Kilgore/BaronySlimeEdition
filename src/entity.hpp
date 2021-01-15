@@ -1033,12 +1033,13 @@ void actMagiclightBall(Entity* my);
 void actAmbientParticleEffectIdle(Entity* my);
 
 void actTextSource(Entity* my);
+void actStatic(Entity* my);
 
 //checks if a sprite falls in certain sprite ranges
 
 static const int NUM_ITEM_STRINGS = 403;
 static const int NUM_ITEM_STRINGS_BY_TYPE = 162;
-static const int NUM_EDITOR_SPRITES = 240;
+static const int NUM_EDITOR_SPRITES = 263;
 static const int NUM_EDITOR_TILES = 608;
 
 // furniture types.

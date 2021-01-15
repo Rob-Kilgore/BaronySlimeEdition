@@ -425,6 +425,11 @@ void actPistonCam(Entity* my)
 	my->actPistonCam();
 }
 
+void actStatic(Entity* my) {
+	if (!my) {
+		return;
+	}
+}
 void Entity::actPistonCam()
 {
 	yaw += pistonCamRotateSpeed;

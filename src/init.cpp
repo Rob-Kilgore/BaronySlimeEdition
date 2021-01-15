@@ -1008,6 +1008,9 @@ void generatePolyModels(int start, int end, bool forceCacheRebuild)
 						fread(&cur->numfaces, sizeof(cur->numfaces), 1, model_cache);
 						cur->faces = (polytriangle_t *) calloc(sizeof(polytriangle_t), cur->numfaces);
 						fread(polymodels[model_index].faces, sizeof(polytriangle_t), cur->numfaces, model_cache);
+						if (model_index > 1600) {
+							int iadfg = 3;
+						}
 					}
 					fclose(model_cache);
 					return generateVBOs(start, end);

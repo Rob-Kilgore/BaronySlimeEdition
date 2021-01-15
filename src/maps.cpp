@@ -2848,13 +2848,21 @@ void assignActions(map_t* map)
 			}
 			// east/west door:
 			case 2:
+			case 237:
 			{
+				// might need a different frame depending on hag house or not
+				int frameSprite = 1;
+				int doorSprite = 2;
+				if (entity->sprite == 237) {
+					frameSprite = 1;
+					doorSprite = 1582;
+				}
 				entity->x += 8;
 				entity->y += 8;
-				entity->sprite = 1;
+				entity->sprite = frameSprite;
 				entity->flags[PASSABLE] = true;
 				entity->behavior = &actDoorFrame;
-				childEntity = newEntity(2, 0, map->entities, nullptr); //Door frame entity.
+				childEntity = newEntity(doorSprite, 0, map->entities, nullptr); //Door frame entity.
 				childEntity->x = entity->x;
 				childEntity->y = entity->y;
 				TileEntityList.addEntity(*childEntity);
@@ -2870,7 +2878,7 @@ void assignActions(map_t* map)
 				childEntity->doorForceLockedUnlocked = entity->doorForceLockedUnlocked;
 				childEntity->doorDisableOpening = entity->doorDisableOpening;
 
-				childEntity = newEntity(1, 0, map->entities, nullptr); //Door entity.
+				childEntity = newEntity(frameSprite, 0, map->entities, nullptr); //Door entity.
 				childEntity->flags[INVISIBLE] = true;
 				childEntity->flags[BLOCKSIGHT] = true;
 				childEntity->x = entity->x;
@@ -2881,7 +2889,7 @@ void assignActions(map_t* map)
 				childEntity->sizex = 2;
 				childEntity->sizey = 2;
 				childEntity->behavior = &actDoorFrame;
-				childEntity = newEntity(1, 0, map->entities, nullptr); //Door frame entity.
+				childEntity = newEntity(frameSprite, 0, map->entities, nullptr); //Door frame entity.
 				childEntity->flags[INVISIBLE] = true;
 				childEntity->flags[BLOCKSIGHT] = true;
 				childEntity->x = entity->x;
@@ -2895,14 +2903,22 @@ void assignActions(map_t* map)
 			}
 			// north/south door:
 			case 3:
+			case 238:
 			{
+				// might need a different frame depending on hag house or not
+				int frameSprite = 1;
+				int doorSprite = 2;
+				if (entity->sprite == 238) {
+					frameSprite = 1;
+					doorSprite = 1582;
+				}
 				entity->x += 8;
 				entity->y += 8;
 				entity->yaw -= PI / 2.0;
-				entity->sprite = 1;
+				entity->sprite = frameSprite;
 				entity->flags[PASSABLE] = true;
 				entity->behavior = &actDoorFrame;
-				childEntity = newEntity(2, 0, map->entities, nullptr); //Door frame entity.
+				childEntity = newEntity(doorSprite, 0, map->entities, nullptr); //Door frame entity.
 				childEntity->x = entity->x;
 				childEntity->y = entity->y;
 				TileEntityList.addEntity(*childEntity);
@@ -2919,7 +2935,7 @@ void assignActions(map_t* map)
 				childEntity->doorForceLockedUnlocked = entity->doorForceLockedUnlocked;
 				childEntity->doorDisableOpening = entity->doorDisableOpening;
 
-				childEntity = newEntity(1, 0, map->entities, nullptr); //Door entity.
+				childEntity = newEntity(frameSprite, 0, map->entities, nullptr); //Door entity.
 				childEntity->flags[INVISIBLE] = true;
 				childEntity->flags[BLOCKSIGHT] = true;
 				childEntity->x = entity->x - 7;
@@ -2931,7 +2947,7 @@ void assignActions(map_t* map)
 				childEntity->sizey = 2;
 				childEntity->behavior = &actDoorFrame;
 
-				childEntity = newEntity(1, 0, map->entities, nullptr); //Door frame entity.
+				childEntity = newEntity(frameSprite, 0, map->entities, nullptr); //Door frame entity.
 				childEntity->flags[INVISIBLE] = true;
 				childEntity->flags[BLOCKSIGHT] = true;
 				childEntity->x = entity->x + 7;
@@ -4240,6 +4256,7 @@ void assignActions(map_t* map)
 				entity->sprite = 162; // firepit
 				break;
 			//The Mystical Fountain of TODO:
+			case 244:
 			case 14:
 			{
 				entity->sizex = 4;
@@ -4248,7 +4265,12 @@ void assignActions(map_t* map)
 				entity->y += 8;
 				entity->z = 6.5;
 				entity->behavior = &actFountain;
-				entity->sprite = 163; //Fountain
+				if (entity->sprite == 14) {
+					entity->sprite = 163; //Fountain
+				}
+				else {
+					entity->sprite = 1589;
+				}
 				entity->skill[0] = 1; //Fountain is full.
 				//Randomly determine effect.
 				int effect = rand() % 10; //3 possible effects.
@@ -5744,6 +5766,7 @@ void assignActions(map_t* map)
 				break;
 			// pedestal
 			case 116:
+			case 248:
 			{
 				entity->sizex = 4;
 				entity->sizey = 4;
@@ -5751,7 +5774,12 @@ void assignActions(map_t* map)
 				entity->y += 8;
 				entity->z = 4.5;
 				entity->behavior = &actPedestalBase;
-				entity->sprite = 601; //pedestal base
+				if (entity->sprite == 116) {
+					entity->sprite = 601; //pedestal base
+				}
+				else {
+					entity->sprite = 1593; //dark pedestal base
+				}
 				entity->flags[PASSABLE] = false;
 				entity->pedestalOrbType = entity->pedestalOrbType + 1;// set in editor as 0-3, need 1-4.
 				if ( entity->pedestalHasOrb == 1 ) // set in editor
@@ -6829,15 +6857,257 @@ void assignActions(map_t* map)
 				}*/
 				entity->portalVictoryType = 3;
 				break;
-				// big big chungus
+				
+			//cauldron
+			case 239:
+				entity->sizex = 13;
+				entity->sizey = 13;
+
+				entity->x += 8;
+				entity->y += 8;
+				entity->z = 8;
+				entity->focalz = -13;
+				entity->sprite = 1584;
+				entity->behavior = &actStatic;
+				break;
+				//tall corn
+			case 240:
+				entity->x += 8;
+				entity->y += 8;
+				entity->z = 8;
+				entity->focalz = -7.5;
+				entity->sprite = 1585;
+				entity->behavior = &actStatic;
+				entity->flags[PASSABLE] = true;
+				break;
+				//dead skeleton
+			case 241:
+				entity->x += 8;
+				entity->y += 8;
+				entity->z = 6.5;
+				entity->sprite = 1586;
+				entity->behavior = &actStatic;
+				entity->flags[PASSABLE] = true;
+				entity->flags[BRIGHT] = false;
+				entity->flags[BLOCKSIGHT] = false;
+				break;
+			// dead tree
+			case 242:
+				entity->x += 8;
+				entity->y += 8;
+				entity->z = 8;
+				entity->sizex = 2;
+				entity->sizey = 2;
+				entity->focalz = -16.25;
+				entity->sprite = 1587;
+				entity->behavior = &actStatic;
+				entity->flags[BRIGHT] = false;
+				entity->flags[BLOCKSIGHT] = false;
+				break;
+			// blue grass
+			case 243:
+				entity->x += 8;
+				entity->y += 8;
+				entity->z = 7.25;
+				entity->sprite = 1588;
+				entity->behavior = &actStatic;
+				entity->flags[PASSABLE] = true;
+				entity->flags[BRIGHT] = false;
+				entity->flags[BLOCKSIGHT] = false;
+				break;
+				// head on stick short
+			case 245:
+				entity->x += 8;
+				entity->y += 8;
+				entity->z = 2;
+				entity->sizex = 1;
+				entity->sizey = 1;
+				entity->sprite = 1590;
+				entity->behavior = &actStatic;
+				entity->flags[BRIGHT] = false;
+				entity->flags[BLOCKSIGHT] = false;
+				break;
+				// head on stick tall
+			case 246:
+				entity->x += 8;
+				entity->y += 8;
+				entity->z = 1.5;
+				entity->sizex = 1;
+				entity->sizey = 1;
+				entity->sprite = 1591;
+				entity->behavior = &actStatic;
+				entity->flags[BRIGHT] = false;
+				entity->flags[BLOCKSIGHT] = false;
+				break;
+				// jack o lantern
+			case 247:
+				entity->x += 8;
+				entity->y += 8;
+				entity->z = 3.75;
+				entity->sizex = 1.5;
+				entity->sizey = 1.5;
+				entity->sprite = 1592;
+				entity->behavior = &actStatic;
+				entity->flags[PASSABLE] = false;
+				entity->flags[BRIGHT] = true;
+				entity->flags[BLOCKSIGHT] = false;
+				break;
+				// pillar bottom
+			case 249:
+				entity->x += 8;
+				entity->y += 8;
+				entity->z = 0;
+				entity->sizex = 5;
+				entity->sizey = 5;
+				entity->sprite = 1594;
+				entity->behavior = &actStatic;
+				entity->flags[PASSABLE] = false;
+				entity->flags[BLOCKSIGHT] = false;
+				break;
+				// pillar two
+			case 250:
+				entity->x += 8;
+				entity->y += 8;
+				entity->z = -8;
+				entity->sizex = 5;
+				entity->sizey = 5;
+				entity->sprite = 1595;
+				entity->behavior = &actStatic;
+				entity->flags[PASSABLE] = false;
+				entity->flags[BLOCKSIGHT] = false;
+				break;
+				// pillar three
+			case 251:
+				entity->x += 8;
+				entity->y += 8;
+				entity->z = -16;
+				entity->sizex = 5;
+				entity->sizey = 5;
+				entity->sprite = 1596;
+				entity->behavior = &actStatic;
+				entity->flags[PASSABLE] = false;
+				entity->flags[BLOCKSIGHT] = false;
+				break;
+				// pillar top
+			case 252:
+				entity->x += 8;
+				entity->y += 8;
+				entity->z = 0;
+				entity->sizex = 5;
+				entity->sizey = 5;
+				entity->sprite = 1597;
+				entity->behavior = &actStatic;
+				entity->flags[PASSABLE] = false;
+				entity->flags[BLOCKSIGHT] = false;
+				break;
+				// roadside fence
+			case 253:
+				entity->x += 8;
+				entity->y += 8;
+				entity->z = 5;
+				entity->sizex = 5;
+				entity->sizey = 1;
+				entity->sprite = 1598;
+				entity->behavior = &actStatic;
+				entity->flags[PASSABLE] = false;
+				entity->flags[BLOCKSIGHT] = false;
+				break;
+				// roadside lantern
+			case 254:
+				entity->x += 8;
+				entity->y += 8;
+				entity->z = .5;
+				entity->sizex = 1;
+				entity->sizey = 1;
+				entity->sprite = 1599;
+				entity->behavior = &actStatic;
+				entity->flags[PASSABLE] = false;
+				entity->flags[BRIGHT] = true;
+				entity->flags[BLOCKSIGHT] = false;
+				break;
+				// rock pillar
+			case 255:
+				entity->x += 8;
+				entity->y += 8;
+				entity->z = -8;
+				entity->sizex = 4;
+				entity->sizey = 4;
+				entity->sprite = 1600;
+				entity->behavior = &actStatic;
+				entity->flags[PASSABLE] = false;
+				entity->flags[BLOCKSIGHT] = false;
+				break;
+				// rock 1
+			case 256:
+				entity->x += 8;
+				entity->y += 8;
+				entity->z = 2.25;
+				entity->sizex = 7;
+				entity->sizey = 7;
+				entity->sprite = 1601;
+				entity->behavior = &actStatic;
+				entity->flags[PASSABLE] = false;
+				entity->flags[BLOCKSIGHT] = false;
+				break;
+				// rock 2
+			case 257:
+				entity->x += 8;
+				entity->y += 8;
+				entity->z = -6.75;
+				entity->sizex = 11;
+				entity->sizey = 11;
+				entity->sprite = 1602;
+				entity->behavior = &actStatic;
+				entity->flags[PASSABLE] = false;
+				entity->flags[BLOCKSIGHT] = false;
+				break;
+				// rock 3
+			case 258:
+				entity->x += 8;
+				entity->y += 8;
+				entity->z = 0.25;
+				entity->sizex = 5;
+				entity->sizey = 5;
+				entity->sprite = 1603;
+				entity->behavior = &actStatic;
+				entity->flags[PASSABLE] = false;
+				entity->flags[BLOCKSIGHT] = false;
+				break;
+				// signpost
+			case 259:
+				entity->x += 8;
+				entity->y += 8;
+				entity->z = 0.5;
+				entity->sizex = 2;
+				entity->sizey = 2;
+				entity->sprite = 1604;
+				entity->behavior = &actStatic;
+				entity->flags[PASSABLE] = false;
+				entity->flags[BLOCKSIGHT] = false;
+				break;
+				// skull decoration
+			case 260:
+				entity->x += 8;
+				entity->y += 8;
+				entity->z = 6.5;
+				entity->sizex = 1;
+				entity->sizey = 1;
+				entity->sprite = 1605;
+				entity->behavior = &actStatic;
+				entity->flags[PASSABLE] = false;
+				entity->flags[BLOCKSIGHT] = false;
+				break;
+				// witch table
 			case 261:
 				entity->x += 8;
 				entity->y += 8;
-				entity->z = 4;
-				entity->sprite = 1561;
-				entity->behavior = &actStalagFloor;
+				entity->z = 2.75;
+				entity->sizex = 4;
+				entity->sizey = 4;
+				entity->sprite = 1606;
+				entity->behavior = &actStatic;
 				entity->flags[PASSABLE] = false;
-				entity->flags[BRIGHT] = false;
+				entity->flags[BRIGHT] = true;
 				entity->flags[BLOCKSIGHT] = false;
 				break;
 			default:
