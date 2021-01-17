@@ -1898,7 +1898,7 @@ char tileEditorNameStrings[NUM_EDITOR_TILES][44] =
 	"HauntedForestPillarBottom.png",
 	"HauntedForestPillarBottomTrees.png",
 	"HauntedForestPillarTop.png",
-	"HauntedForestPillarTopTreespng.png",
+	"HauntedForestPillarTopTrees.png",
 	"HauntedForestRock.png",
 	"HauntedForestTreeGap1.png",
 	"HauntedForestTreeGap2.png",
