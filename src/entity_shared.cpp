@@ -119,6 +119,7 @@ int checkSpriteType(Sint32 sprite)
 	case 116:
 	case 166:
 	case 213:
+	case 248:
 		//pedestal
 		return 8;
 		break;
@@ -150,6 +151,8 @@ int checkSpriteType(Sint32 sprite)
 	case 176:
 	case 177:
 	case 212:
+	case 239:
+	case 261:
 		// general furniture/misc.
 		return 12;
 		break;
@@ -161,6 +164,21 @@ int checkSpriteType(Sint32 sprite)
 	case 178:
 	case 208:
 	case 209:
+	case 240:
+	case 241:
+	case 242:
+	case 243:
+	case 245:
+	case 246:
+	case 247:
+	case 253:
+	case 254:
+	case 255:
+	case 256:
+	case 257:
+	case 258:
+	case 259:
+	case 260:
 		// floor decoration
 		return 13;
 		break;

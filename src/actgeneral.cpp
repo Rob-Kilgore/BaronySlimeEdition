@@ -430,6 +430,13 @@ void actStatic(Entity* my) {
 		return;
 	}
 }
+
+void actEmit(Entity* my) {
+	if (!my) {
+		return;
+	}
+	my->light = lightSphereShadow(my->x / 16, my->y / 16, 7, 192);
+}
 void Entity::actPistonCam()
 {
 	yaw += pistonCamRotateSpeed;

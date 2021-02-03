@@ -6869,12 +6869,39 @@ void assignActions(map_t* map)
 				entity->focalz = -13;
 				entity->sprite = 1584;
 				entity->behavior = &actStatic;
+				if (entity->furnitureDir != -1)
+				{
+					entity->yaw = entity->furnitureDir * 45 * (PI / 180.f);
+					if (entity->furnitureDir == 0 || entity->furnitureDir == 4)
+					{
+						entity->sizex = 5;
+						entity->sizey = 4;
+					}
+					else if (entity->furnitureDir == 2 || entity->furnitureDir == 6)
+					{
+						entity->sizex = 4;
+						entity->sizey = 5;
+					}
+					else
+					{
+						entity->sizex = 6;
+						entity->sizey = 6;
+					}
+				}
 				break;
 				//tall corn
 			case 240:
 				entity->x += 8;
 				entity->y += 8;
-				entity->z = 8;
+				entity->z = 8 - entity->floorDecorationHeightOffset * 0.25;
+				if (entity->floorDecorationRotation == -1)
+				{
+					entity->yaw = (prng_get_uint() % 8) * (PI / 4);
+				}
+				else
+				{
+					entity->yaw = entity->floorDecorationRotation * (PI / 4);
+				}
 				entity->focalz = -7.5;
 				entity->sprite = 1585;
 				entity->behavior = &actStatic;
@@ -6884,7 +6911,15 @@ void assignActions(map_t* map)
 			case 241:
 				entity->x += 8;
 				entity->y += 8;
-				entity->z = 6.5;
+				entity->z = 6.5 - entity->floorDecorationHeightOffset * 0.25;
+				if (entity->floorDecorationRotation == -1)
+				{
+					entity->yaw = (prng_get_uint() % 8) * (PI / 4);
+				}
+				else
+				{
+					entity->yaw = entity->floorDecorationRotation * (PI / 4);
+				}
 				entity->sprite = 1586;
 				entity->behavior = &actStatic;
 				entity->flags[PASSABLE] = true;
@@ -6895,7 +6930,15 @@ void assignActions(map_t* map)
 			case 242:
 				entity->x += 8;
 				entity->y += 8;
-				entity->z = 8;
+				entity->z = 8 - entity->floorDecorationHeightOffset * 0.25;
+				if (entity->floorDecorationRotation == -1)
+				{
+					entity->yaw = (prng_get_uint() % 8) * (PI / 4);
+				}
+				else
+				{
+					entity->yaw = entity->floorDecorationRotation * (PI / 4);
+				}
 				entity->sizex = 2;
 				entity->sizey = 2;
 				entity->focalz = -16.25;
@@ -6908,7 +6951,15 @@ void assignActions(map_t* map)
 			case 243:
 				entity->x += 8;
 				entity->y += 8;
-				entity->z = 7.25;
+				entity->z = 7.25 - entity->floorDecorationHeightOffset * 0.25;
+				if (entity->floorDecorationRotation == -1)
+				{
+					entity->yaw = (prng_get_uint() % 8) * (PI / 4);
+				}
+				else
+				{
+					entity->yaw = entity->floorDecorationRotation * (PI / 4);
+				}
 				entity->sprite = 1588;
 				entity->behavior = &actStatic;
 				entity->flags[PASSABLE] = true;
@@ -6919,7 +6970,15 @@ void assignActions(map_t* map)
 			case 245:
 				entity->x += 8;
 				entity->y += 8;
-				entity->z = 2;
+				entity->z = 2 - entity->floorDecorationHeightOffset * 0.25;
+				if (entity->floorDecorationRotation == -1)
+				{
+					entity->yaw = (prng_get_uint() % 8) * (PI / 4);
+				}
+				else
+				{
+					entity->yaw = entity->floorDecorationRotation * (PI / 4);
+				}
 				entity->sizex = 1;
 				entity->sizey = 1;
 				entity->sprite = 1590;
@@ -6931,7 +6990,15 @@ void assignActions(map_t* map)
 			case 246:
 				entity->x += 8;
 				entity->y += 8;
-				entity->z = 1.5;
+				entity->z = 1.5 - entity->floorDecorationHeightOffset * 0.25;
+				if (entity->floorDecorationRotation == -1)
+				{
+					entity->yaw = (prng_get_uint() % 8) * (PI / 4);
+				}
+				else
+				{
+					entity->yaw = entity->floorDecorationRotation * (PI / 4);
+				}
 				entity->sizex = 1;
 				entity->sizey = 1;
 				entity->sprite = 1591;
@@ -6943,13 +7010,21 @@ void assignActions(map_t* map)
 			case 247:
 				entity->x += 8;
 				entity->y += 8;
-				entity->z = 3.75;
+				entity->z = 3.75 - entity->floorDecorationHeightOffset * 0.25;
+				if (entity->floorDecorationRotation == -1)
+				{
+					entity->yaw = (prng_get_uint() % 8) * (PI / 4);
+				}
+				else
+				{
+					entity->yaw = entity->floorDecorationRotation * (PI / 4);
+				}
 				entity->sizex = 1.5;
 				entity->sizey = 1.5;
 				entity->sprite = 1592;
 				entity->behavior = &actStatic;
 				entity->flags[PASSABLE] = false;
-				entity->flags[BRIGHT] = true;
+				entity->flags[BRIGHT] = false;
 				entity->flags[BLOCKSIGHT] = false;
 				break;
 				// pillar bottom
@@ -7002,13 +7077,21 @@ void assignActions(map_t* map)
 				break;
 				// roadside fence
 			case 253:
-				entity->x += 8;
-				entity->y += 8;
-				entity->z = 5;
 				entity->sizex = 5;
 				entity->sizey = 1;
 				entity->sprite = 1598;
 				entity->behavior = &actStatic;
+				entity->x += 8;
+				entity->y += 8;
+				entity->z = 5 - entity->floorDecorationHeightOffset * 0.25;
+				if (entity->floorDecorationRotation == -1)
+				{
+					entity->yaw = (prng_get_uint() % 8) * (PI / 4);
+				}
+				else
+				{
+					entity->yaw = entity->floorDecorationRotation * (PI / 4);
+				}
 				entity->flags[PASSABLE] = false;
 				entity->flags[BLOCKSIGHT] = false;
 				break;
@@ -7016,20 +7099,36 @@ void assignActions(map_t* map)
 			case 254:
 				entity->x += 8;
 				entity->y += 8;
-				entity->z = .5;
+				entity->z = .5 - entity->floorDecorationHeightOffset * 0.25;
+				if (entity->floorDecorationRotation == -1)
+				{
+					entity->yaw = (prng_get_uint() % 8) * (PI / 4);
+				}
+				else
+				{
+					entity->yaw = entity->floorDecorationRotation * (PI / 4);
+				}
 				entity->sizex = 1;
 				entity->sizey = 1;
 				entity->sprite = 1599;
 				entity->behavior = &actStatic;
 				entity->flags[PASSABLE] = false;
-				entity->flags[BRIGHT] = true;
+				entity->flags[BRIGHT] = false;
 				entity->flags[BLOCKSIGHT] = false;
 				break;
 				// rock pillar
 			case 255:
 				entity->x += 8;
 				entity->y += 8;
-				entity->z = -8;
+				entity->z = -8 - entity->floorDecorationHeightOffset * 0.25;
+				if (entity->floorDecorationRotation == -1)
+				{
+					entity->yaw = (prng_get_uint() % 8) * (PI / 4);
+				}
+				else
+				{
+					entity->yaw = entity->floorDecorationRotation * (PI / 4);
+				}
 				entity->sizex = 4;
 				entity->sizey = 4;
 				entity->sprite = 1600;
@@ -7041,7 +7140,15 @@ void assignActions(map_t* map)
 			case 256:
 				entity->x += 8;
 				entity->y += 8;
-				entity->z = 2.25;
+				entity->z = 2.25 - entity->floorDecorationHeightOffset * 0.25;
+				if (entity->floorDecorationRotation == -1)
+				{
+					entity->yaw = (prng_get_uint() % 8) * (PI / 4);
+				}
+				else
+				{
+					entity->yaw = entity->floorDecorationRotation * (PI / 4);
+				}
 				entity->sizex = 7;
 				entity->sizey = 7;
 				entity->sprite = 1601;
@@ -7053,7 +7160,15 @@ void assignActions(map_t* map)
 			case 257:
 				entity->x += 8;
 				entity->y += 8;
-				entity->z = -6.75;
+				entity->z = -6.75 - entity->floorDecorationHeightOffset * 0.25;
+				if (entity->floorDecorationRotation == -1)
+				{
+					entity->yaw = (prng_get_uint() % 8) * (PI / 4);
+				}
+				else
+				{
+					entity->yaw = entity->floorDecorationRotation * (PI / 4);
+				}
 				entity->sizex = 11;
 				entity->sizey = 11;
 				entity->sprite = 1602;
@@ -7065,7 +7180,15 @@ void assignActions(map_t* map)
 			case 258:
 				entity->x += 8;
 				entity->y += 8;
-				entity->z = 0.25;
+				entity->z = .25 - entity->floorDecorationHeightOffset * 0.25;
+				if (entity->floorDecorationRotation == -1)
+				{
+					entity->yaw = (prng_get_uint() % 8) * (PI / 4);
+				}
+				else
+				{
+					entity->yaw = entity->floorDecorationRotation * (PI / 4);
+				}
 				entity->sizex = 5;
 				entity->sizey = 5;
 				entity->sprite = 1603;
@@ -7077,7 +7200,15 @@ void assignActions(map_t* map)
 			case 259:
 				entity->x += 8;
 				entity->y += 8;
-				entity->z = 0.5;
+				entity->z = .5 - entity->floorDecorationHeightOffset * 0.25;
+				if (entity->floorDecorationRotation == -1)
+				{
+					entity->yaw = (prng_get_uint() % 8) * (PI / 4);
+				}
+				else
+				{
+					entity->yaw = entity->floorDecorationRotation * (PI / 4);
+				}
 				entity->sizex = 2;
 				entity->sizey = 2;
 				entity->sprite = 1604;
@@ -7089,7 +7220,15 @@ void assignActions(map_t* map)
 			case 260:
 				entity->x += 8;
 				entity->y += 8;
-				entity->z = 6.5;
+				entity->z = 6.5 - entity->floorDecorationHeightOffset * 0.25;
+				if (entity->floorDecorationRotation == -1)
+				{
+					entity->yaw = (prng_get_uint() % 8) * (PI / 4);
+				}
+				else
+				{
+					entity->yaw = entity->floorDecorationRotation * (PI / 4);
+				}
 				entity->sizex = 1;
 				entity->sizey = 1;
 				entity->sprite = 1605;
@@ -7105,10 +7244,30 @@ void assignActions(map_t* map)
 				entity->sizex = 4;
 				entity->sizey = 4;
 				entity->sprite = 1606;
-				entity->behavior = &actStatic;
+				entity->behavior = &actFurniture;
 				entity->flags[PASSABLE] = false;
-				entity->flags[BRIGHT] = true;
+				entity->flags[BRIGHT] = false;
 				entity->flags[BLOCKSIGHT] = false;
+				entity->furnitureType = FURNITURE_TABLE;
+				if (entity->furnitureDir != -1)
+				{
+					entity->yaw = entity->furnitureDir * 45 * (PI / 180.f);
+					if (entity->furnitureDir == 0 || entity->furnitureDir == 4)
+					{
+						entity->sizex = 5;
+						entity->sizey = 4;
+					}
+					else if (entity->furnitureDir == 2 || entity->furnitureDir == 6)
+					{
+						entity->sizex = 4;
+						entity->sizey = 5;
+					}
+					else
+					{
+						entity->sizex = 6;
+						entity->sizey = 6;
+					}
+				}
 				break;
 			default:
 				break;
