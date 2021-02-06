@@ -164,7 +164,6 @@ int checkSpriteType(Sint32 sprite)
 	case 178:
 	case 208:
 	case 209:
-	case 240:
 	case 241:
 	case 242:
 	case 243:
