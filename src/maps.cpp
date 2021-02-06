@@ -6943,15 +6943,7 @@ void assignActions(map_t* map)
 			case 243:
 				entity->x += 8;
 				entity->y += 8;
-				entity->z = 7.25 - entity->floorDecorationHeightOffset * 0.25;
-				if (entity->floorDecorationRotation == -1)
-				{
-					entity->yaw = (prng_get_uint() % 8) * (PI / 4);
-				}
-				else
-				{
-					entity->yaw = entity->floorDecorationRotation * (PI / 4);
-				}
+				entity->z = 7.25;
 				entity->sprite = 1588;
 				entity->behavior = &actStatic;
 				entity->flags[PASSABLE] = true;
